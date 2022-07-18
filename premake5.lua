@@ -1,5 +1,6 @@
 workspace "Rexal"
 	architecture "x64"
+	startproject "Sandbox"
 
 	configurations
 	{
@@ -17,6 +18,9 @@ project "Rexal"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	
+	pchheader "rxpch.h"
+	pchsource "Rexal/src/rxpch.cpp"
 
 	files
 	{
@@ -43,7 +47,7 @@ project "Rexal"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"

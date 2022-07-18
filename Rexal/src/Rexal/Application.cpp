@@ -1,3 +1,4 @@
+#include "rxpch.h"
 #include "Application.h"
 
 #include "Rexal/Events/ApplicationEvent.h"

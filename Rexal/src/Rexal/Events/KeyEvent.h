@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Rexal {
 
 	class REXAL_API KeyEvent : public Event

@@ -34,6 +34,7 @@
     <ClInclude Include="src\Rexal\Log.h">
       <Filter>Rexal</Filter>
     </ClInclude>
+    <ClInclude Include="src\rxpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Rexal\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\Rexal\Log.cpp">
       <Filter>Rexal</Filter>
     </ClCompile>
+    <ClCompile Include="src\rxpch.cpp" />
   </ItemGroup>
 </Project>
