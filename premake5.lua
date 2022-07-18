@@ -11,10 +11,17 @@ workspace "Rexal"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories related to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Rexal/vendor/GLFW/include"
+
+include "Rexal/vendor/GLFW"
+
 project "Rexal"
 	location "Rexal"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -31,12 +38,18 @@ project "Rexal"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+	
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -52,20 +65,24 @@ project "Rexal"
 
 	filter "configurations:Debug"
 		defines "RX_DEBUG"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "RX_RELEASE"
+		runtime "Debug"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "RX_DIST"
+		runtime "Debug"
 		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -89,7 +106,6 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -99,12 +115,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "RX_DEBUG"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "RX_RELEASE"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "RX_DIST"
+		runtime "Release"
 		optimize "On"

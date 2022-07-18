@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Rexal/Log.h"
+
 #ifdef RX_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

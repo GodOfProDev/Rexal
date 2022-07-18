@@ -10,4 +10,16 @@
 	#error Rexal only supports Windows!
 #endif
 
+#ifdef RX_DEBUG
+	#define RX_ENABLE_ASSERTS
+#endif
+
+#ifdef RX_ENABLE_ASSERTS
+	#define RX_ASSERT(x, ...) { if(!(x)) { RX_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+	#define RX_CORE_ASSERT(x, ...) { if(!(x)) { RX_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#else
+	#define RX_ASSERT(x, ...)
+	#define RX_CORE_ASSERT(x, ...)
+#endif
+
 #define BIT(x) (1 << x)

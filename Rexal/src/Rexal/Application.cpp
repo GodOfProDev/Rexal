@@ -2,12 +2,14 @@
 #include "Application.h"
 
 #include "Rexal/Events/ApplicationEvent.h"
-#include "Rexal/Log.h"
+
+#include <GLFW/glfw3.h>
 
 namespace Rexal {
 
 	Application::Application()
 	{
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -16,10 +18,12 @@ namespace Rexal {
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1280, 720);
-		RX_TRACE(e);
-
-		while (true);
+		while (m_Running)
+		{
+			glClearColor(0.5, 0.2, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+			m_Window->OnUpdate();
+		}
 	}
 
 	// To be defined in Client
