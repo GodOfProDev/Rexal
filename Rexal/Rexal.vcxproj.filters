@@ -4,6 +4,9 @@
     <Filter Include="Rexal">
       <UniqueIdentifier>{2147040E-8D5B-2CBF-56DD-CF1EC2B028F0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Rexal\Events">
+      <UniqueIdentifier>{E5838023-D1E6-0FC8-7A6C-487E66AEDB4A}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Rexal.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Rexal\EntryPoint.h">
       <Filter>Rexal</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Events\ApplicationEvent.h">
+      <Filter>Rexal\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Events\Event.h">
+      <Filter>Rexal\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Events\KeyEvent.h">
+      <Filter>Rexal\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Events\MouseEvent.h">
+      <Filter>Rexal\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Rexal\Log.h">
       <Filter>Rexal</Filter>

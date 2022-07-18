@@ -1,5 +1,8 @@
 #include "Application.h"
 
+#include "Rexal/Events/ApplicationEvent.h"
+#include "Rexal/Log.h"
+
 namespace Rexal {
 
 	Application::Application()
@@ -12,6 +15,9 @@ namespace Rexal {
 
 	void Application::Run()
 	{
+		WindowResizeEvent e(1280, 720);
+		RX_TRACE(e);
+
 		while (true);
 	}
 
