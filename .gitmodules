@@ -1,0 +1,3 @@
+[submodule "Rexal/vendor/spdlog"]
+	path = Rexal/vendor/spdlog
+	url = https://github.com/gabime/spdlog

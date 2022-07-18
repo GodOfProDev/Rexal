@@ -24,9 +24,18 @@
     <ClInclude Include="src\Rexal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Rexal\EntryPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Rexal\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rexal\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
