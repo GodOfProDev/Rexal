@@ -47,6 +47,8 @@
       <Filter>Rexal</Filter>
     </ClInclude>
     <ClInclude Include="src\rxpch.h" />
+    <ClInclude Include="src\Rexal\Layer.h" />
+    <ClInclude Include="src\Rexal\LayerStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
@@ -59,5 +61,7 @@
       <Filter>Rexal</Filter>
     </ClCompile>
     <ClCompile Include="src\rxpch.cpp" />
+    <ClCompile Include="src\Rexal\Layer.cpp" />
+    <ClCompile Include="src\Rexal\LayerStack.cpp" />
   </ItemGroup>
 </Project>

@@ -151,6 +151,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Rexal\LayerStack.h" />
+    <ClInclude Include="src\Rexal\Layer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Rexal.h" />
     <ClInclude Include="src\Rexal\Application.h" />
@@ -165,6 +167,8 @@
     <ClInclude Include="src\rxpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Rexal\LayerStack.cpp" />
+    <ClCompile Include="src\Rexal\Layer.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Rexal\Application.cpp" />
     <ClCompile Include="src\Rexal\Log.cpp" />
