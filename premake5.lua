@@ -14,10 +14,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories related to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Rexal/vendor/GLFW/include"
-IncludeDir["GLAD"] = "Rexal/vendor/GLAD/include"
+IncludeDir["Glad"] = "Rexal/vendor/Glad/include"
+IncludeDir["ImGui"] = "Rexal/vendor/imgui"
 
 include "Rexal/vendor/GLFW"
-include "Rexal/vendor/GLAD"
+include "Rexal/vendor/Glad"
+include "Rexal/vendor/imgui"
 
 project "Rexal"
 	location "Rexal"
@@ -42,13 +44,15 @@ project "Rexal"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.GLAD}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 	
 	links
 	{
 		"GLFW",
 		"GLAD",
+		"ImGui",
 		"opengl32.lib"
 	}
 
