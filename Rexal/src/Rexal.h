@@ -5,6 +5,12 @@
 #include "Rexal/Application.h"
 #include "Rexal/Layer.h"
 #include "Rexal/Log.h"
+
+#include "Rexal/Input.h"
+#include "Rexal/MouseButtonCodes.h"
+#include "Rexal/KeyCodes.h"
+
+
 #include "Rexal/ImGui/ImGuiLayer.h"
 
 // ------ Entry Point ------

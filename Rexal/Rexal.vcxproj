@@ -161,9 +161,11 @@
     <ClInclude Include="src\Rexal\Events\MouseEvent.h" />
     <ClInclude Include="src\Rexal\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Rexal\Input.h" />
+    <ClInclude Include="src\Rexal\KeyCodes.h" />
     <ClInclude Include="src\Rexal\Layer.h" />
     <ClInclude Include="src\Rexal\LayerStack.h" />
     <ClInclude Include="src\Rexal\Log.h" />
+    <ClInclude Include="src\Rexal\MouseButtonCodes.h" />
     <ClInclude Include="src\Rexal\Window.h" />
     <ClInclude Include="src\rxpch.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />

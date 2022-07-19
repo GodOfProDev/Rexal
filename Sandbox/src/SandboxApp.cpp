@@ -10,12 +10,12 @@ public:
 
 	void OnUpdate() override
 	{
-		RX_INFO("ExampleLayer::Update");
+		//RX_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(Rexal::Event& event) override
 	{
-		RX_TRACE("{0}", event);
+		//RX_TRACE("{0}", event);
 	}
 
 };
