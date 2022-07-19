@@ -14,8 +14,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories related to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Rexal/vendor/GLFW/include"
+IncludeDir["GLAD"] = "Rexal/vendor/GLAD/include"
 
 include "Rexal/vendor/GLFW"
+include "Rexal/vendor/GLAD"
 
 project "Rexal"
 	location "Rexal"
@@ -39,12 +41,14 @@ project "Rexal"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.GLAD}"
 	}
 	
 	links
 	{
 		"GLFW",
+		"GLAD",
 		"opengl32.lib"
 	}
 
@@ -55,7 +59,8 @@ project "Rexal"
 		defines
 		{
 			"RX_PLATFORM_WINDOWS",
-			"RX_BUILD_DLL"
+			"RX_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands

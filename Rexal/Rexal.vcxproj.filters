@@ -40,6 +40,12 @@
     <ClInclude Include="src\Rexal\Events\MouseEvent.h">
       <Filter>Rexal\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Rexal\Layer.h">
+      <Filter>Rexal</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\LayerStack.h">
+      <Filter>Rexal</Filter>
+    </ClInclude>
     <ClInclude Include="src\Rexal\Log.h">
       <Filter>Rexal</Filter>
     </ClInclude>
@@ -47,8 +53,6 @@
       <Filter>Rexal</Filter>
     </ClInclude>
     <ClInclude Include="src\rxpch.h" />
-    <ClInclude Include="src\Rexal\Layer.h" />
-    <ClInclude Include="src\Rexal\LayerStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
@@ -57,11 +61,15 @@
     <ClCompile Include="src\Rexal\Application.cpp">
       <Filter>Rexal</Filter>
     </ClCompile>
+    <ClCompile Include="src\Rexal\Layer.cpp">
+      <Filter>Rexal</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rexal\LayerStack.cpp">
+      <Filter>Rexal</Filter>
+    </ClCompile>
     <ClCompile Include="src\Rexal\Log.cpp">
       <Filter>Rexal</Filter>
     </ClCompile>
     <ClCompile Include="src\rxpch.cpp" />
-    <ClCompile Include="src\Rexal\Layer.cpp" />
-    <ClCompile Include="src\Rexal\LayerStack.cpp" />
   </ItemGroup>
 </Project>
