@@ -79,12 +79,12 @@ project "Rexal"
 
 	filter "configurations:Release"
 		defines "RX_RELEASE"
-		runtime "Debug"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "RX_DIST"
-		runtime "Debug"
+		runtime "Release"
 		optimize "On"
 
 project "Sandbox"
