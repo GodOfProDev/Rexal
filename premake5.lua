@@ -112,6 +112,7 @@ project "Sandbox"
 	{
 		"Rexal/vendor/spdlog/include",
 		"Rexal/src",
+		"Rexal/vendor",
 		"%{IncludeDir.glm}"
 	}
 

@@ -5,7 +5,6 @@ namespace Rexal {
 
 	LayerStack::LayerStack()
 	{
-		m_LayerInsert = m_Layers.begin();
 	}
 
 	LayerStack::~LayerStack()
@@ -16,7 +15,8 @@ namespace Rexal {
 
 	void LayerStack::PushLayer(Layer* layer)
 	{
-		m_LayerInsert = m_Layers.emplace(m_LayerInsert, layer);
+		m_Layers.emplace(m_Layers.begin() + m_LayerInsertIndex, layer);
+		m_LayerInsertIndex;
 		layer->OnAttach();
 	}
 
@@ -32,8 +32,8 @@ namespace Rexal {
 		if (it != m_Layers.end())
 		{
 			m_Layers.erase(it);
-			m_LayerInsert--;
-			layer->OnDeattach();
+			m_LayerInsertIndex--;
+			layer->OnDetach();
 		}
 	}
 
@@ -43,7 +43,7 @@ namespace Rexal {
 		if (it != m_Layers.end())
 		{
 			m_Layers.erase(it);
-			overlay->OnDeattach();
+			overlay->OnDetach();
 		}
 	}
 

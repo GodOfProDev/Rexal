@@ -7,6 +7,7 @@
 #include "Rexal/Events/Event.h"
 #include "Rexal/Events/ApplicationEvent.h"
 
+#include "Rexal/ImGui/ImGuiLayer.h"
 
 namespace Rexal {
 	class REXAL_API Application
@@ -28,6 +29,7 @@ namespace Rexal {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 	private:
