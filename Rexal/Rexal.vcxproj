@@ -140,6 +140,8 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Rexal\Renderer\Renderer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -158,6 +160,7 @@
     <ClInclude Include="src\Rexal\LayerStack.h" />
     <ClInclude Include="src\Rexal\Log.h" />
     <ClInclude Include="src\Rexal\MouseButtonCodes.h" />
+    <ClInclude Include="src\Rexal\Renderer\Buffer.h" />
     <ClInclude Include="src\Rexal\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Rexal\Renderer\Shader.h" />
     <ClInclude Include="src\Rexal\Window.h" />
@@ -579,6 +582,8 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Rexal\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
@@ -588,6 +593,7 @@
     <ClCompile Include="src\Rexal\Layer.cpp" />
     <ClCompile Include="src\Rexal\LayerStack.cpp" />
     <ClCompile Include="src\Rexal\Log.cpp" />
+    <ClCompile Include="src\Rexal\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Rexal\Renderer\Shader.cpp" />
     <ClCompile Include="src\rxpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
