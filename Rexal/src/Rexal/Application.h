@@ -9,6 +9,8 @@
 
 #include "Rexal/ImGui/ImGuiLayer.h"
 
+#include "Rexal/Renderer/Shader.h"
+
 namespace Rexal {
 	class REXAL_API Application
 	{
@@ -34,6 +36,7 @@ namespace Rexal {
 		LayerStack m_LayerStack;
 
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 	private:
 		static Application* s_Instance;
 	};
