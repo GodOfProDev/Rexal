@@ -140,6 +140,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Rexal\Renderer\Renderer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="src\Rexal\Renderer\Buffer.h" />
     <ClInclude Include="src\Rexal\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Rexal\Renderer\Shader.h" />
+    <ClInclude Include="src\Rexal\Renderer\VertexArray.h" />
     <ClInclude Include="src\Rexal\Window.h" />
     <ClInclude Include="src\rxpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -582,6 +584,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Rexal\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
@@ -595,6 +598,7 @@
     <ClCompile Include="src\Rexal\Log.cpp" />
     <ClCompile Include="src\Rexal\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Rexal\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Rexal\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\rxpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
