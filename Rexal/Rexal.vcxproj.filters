@@ -1352,6 +1352,9 @@
     <ClInclude Include="src\Rexal\Renderer\Renderer.h" />
     <ClInclude Include="src\Rexal\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\Rexal\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Rexal\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
@@ -1388,5 +1391,8 @@
     <ClCompile Include="src\Rexal\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Rexal\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\Rexal\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Rexal\Renderer\RenderCommand.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
   </ItemGroup>
 </Project>

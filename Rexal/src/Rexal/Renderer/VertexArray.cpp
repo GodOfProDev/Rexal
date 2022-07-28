@@ -10,8 +10,8 @@ namespace Rexal {
 	{
 		switch (Renderer::GetAPI())
 		{
-			case RendererAPI::None: RX_CORE_ASSERT(false, "RendererAPI::None is currently not supported"); return nullptr;
-			case RendererAPI::OpenGL: return new OpenGLVertexArray();
+			case RendererAPI::API::None: RX_CORE_ASSERT(false, "RendererAPI::None is currently not supported"); return nullptr;
+			case RendererAPI::API::OpenGL: return new OpenGLVertexArray();
 		}
 
 		RX_CORE_ASSERT(false, "Unkown RendererAPI");

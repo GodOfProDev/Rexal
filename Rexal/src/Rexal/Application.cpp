@@ -1,7 +1,7 @@
 #include "rxpch.h"
 #include "Application.h"
 
-#include <glad/glad.h>
+#include "Rexal/Renderer/Renderer.h"
 
 namespace Rexal {
 
@@ -109,12 +109,15 @@ namespace Rexal {
 	{
 		while (m_Running)
 		{
-			glClearColor(0.5, 0.2, 1, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
+			RenderCommand::SetClearColor({ 0.5, 0.2, 1, 1 });
+			RenderCommand::Clear();
+
+			Renderer::BeginScene();
 
 			m_Shader->Bind();
-			m_VertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
+			Renderer::Submit(m_VertexArray);
+
+			Renderer::EndScene();
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
@@ -133,6 +136,7 @@ namespace Rexal {
 		m_Running = false;
 		return true;
 	}
+
 	// To be defined in Client
 	Application* CreateApplication();
 }
