@@ -10,8 +10,18 @@
 #include "Rexal/MouseButtonCodes.h"
 #include "Rexal/KeyCodes.h"
 
-
 #include "Rexal/ImGui/ImGuiLayer.h"
+
+// ------ Renderer ------
+#include "Rexal/Renderer/Renderer.h"
+#include "Rexal/Renderer/RenderCommand.h"
+
+#include "Rexal/Renderer/Shader.h"
+#include "Rexal/Renderer/Buffer.h"
+#include "Rexal/Renderer/VertexArray.h"
+
+#include "Rexal/Renderer/OrthographicCamera.h"
+// -------------------------
 
 // ------ Entry Point ------
 #include "Rexal/EntryPoint.h"

@@ -9,12 +9,6 @@
 
 #include "Rexal/ImGui/ImGuiLayer.h"
 
-#include "Rexal/Renderer/Shader.h"
-#include "Rexal/Renderer/Buffer.h"
-#include "Rexal/Renderer/VertexArray.h"
-
-#include "Rexal/Renderer/OrthographicCamera.h"
-
 namespace Rexal {
 	class REXAL_API Application
 	{
@@ -38,15 +32,6 @@ namespace Rexal {
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-		std::shared_ptr<VertexBuffer> m_VertexBuffer;
-		std::shared_ptr<IndexBuffer> m_IndexBuffer;
-
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};
