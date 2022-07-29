@@ -13,6 +13,8 @@
 #include "Rexal/Renderer/Buffer.h"
 #include "Rexal/Renderer/VertexArray.h"
 
+#include "Rexal/Renderer/OrthographicCamera.h"
+
 namespace Rexal {
 	class REXAL_API Application
 	{
@@ -43,6 +45,8 @@ namespace Rexal {
 		std::shared_ptr<IndexBuffer> m_IndexBuffer;
 
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};
