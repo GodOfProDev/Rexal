@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\Rexal\Core\Timestep.h" />
     <ClInclude Include="src\Rexal\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Rexal\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Rexal\Renderer\Renderer.h" />

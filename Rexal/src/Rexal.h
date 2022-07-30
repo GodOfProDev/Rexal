@@ -6,6 +6,8 @@
 #include "Rexal/Layer.h"
 #include "Rexal/Log.h"
 
+#include "Rexal/Core/Timestep.h"
+
 #include "Rexal/Input.h"
 #include "Rexal/MouseButtonCodes.h"
 #include "Rexal/KeyCodes.h"

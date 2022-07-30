@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Rexal/Core.h"
+#include "Rexal/Core/Timestep.h"
 #include "Rexal/Events/Event.h"
 
 namespace Rexal {
@@ -12,7 +13,7 @@ namespace Rexal {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 
