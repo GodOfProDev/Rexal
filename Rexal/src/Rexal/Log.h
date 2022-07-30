@@ -5,7 +5,7 @@
 #include "spdlog/fmt/ostr.h"
 
 namespace Rexal {
-	class REXAL_API Log
+	class Log
 	{
 	public:
 		static void Init();

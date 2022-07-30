@@ -7,7 +7,7 @@
 #include "Rexal/Events/KeyEvent.h"
 
 namespace Rexal {
-	class REXAL_API ImGuiLayer : public Layer
+	class ImGuiLayer : public Layer
 	{
 	public:
 		ImGuiLayer();

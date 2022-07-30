@@ -12,7 +12,7 @@
 #include "Rexal/ImGui/ImGuiLayer.h"
 
 namespace Rexal {
-	class REXAL_API Application
+	class Application
 	{
 	public:
 		Application();

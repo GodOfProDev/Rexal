@@ -5,7 +5,7 @@
 #include "Rexal/Events/Event.h"
 
 namespace Rexal {
-	class REXAL_API Layer
+	class Layer
 	{
 	public:
 		Layer(const std::string& name = "Layer");

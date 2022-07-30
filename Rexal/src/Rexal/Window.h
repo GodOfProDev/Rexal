@@ -22,7 +22,7 @@ namespace Rexal {
 	};
 
 	// Interface representing a desktop system based Window
-	class REXAL_API Window
+	class Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
