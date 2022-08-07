@@ -13,7 +13,7 @@ namespace Rexal {
 
 	static void GLFWErrorCallback(int error, const char* description)
 	{
-		RX_CORE_ASSERT("GLFW Erro ({0}): {1}", error, description);
+		RX_CORE_ASSERT("GLFW Error ({0}): {1}", error, description);
 	}
 
 	Window* Window::Create(const WindowProps& props)
