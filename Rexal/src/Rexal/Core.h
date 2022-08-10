@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #ifdef RX_PLATFORM_WINDOWS
 #if RX_DYNAMIC_LINK
 	#ifdef RX_BUILD_DLL
@@ -29,3 +31,12 @@
 #define BIT(x) (1 << x)
 
 #define RX_BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
+
+namespace Rexal {
+
+	template<typename T>
+	using Scope = std::unique_ptr<T>;
+
+	template<typename T>
+	using Ref = std::shared_ptr<T>;
+}

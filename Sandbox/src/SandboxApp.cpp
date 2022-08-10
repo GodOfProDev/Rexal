@@ -38,10 +38,10 @@ public:
 			{ Rexal::ShaderDataType::Float3, "a_Position" }
 		};
 		
-		std::shared_ptr<Rexal::VertexBuffer> vertexBuffer;
-		std::shared_ptr<Rexal::IndexBuffer> indexBuffer;
-		std::shared_ptr<Rexal::VertexBuffer> squareVB;
-		std::shared_ptr<Rexal::IndexBuffer> squareIB;
+		Rexal::Ref<Rexal::VertexBuffer> vertexBuffer;
+		Rexal::Ref<Rexal::IndexBuffer> indexBuffer;
+		Rexal::Ref<Rexal::VertexBuffer> squareVB;
+		Rexal::Ref<Rexal::IndexBuffer> squareIB;
 
 		vertexBuffer.reset(Rexal::VertexBuffer::Create(vertices, sizeof(vertices)));
 		indexBuffer.reset(Rexal::IndexBuffer::Create(indices, std::size(indices)));
@@ -190,11 +190,11 @@ public:
 	}
 
 private:
-	std::shared_ptr<Rexal::Shader> m_Shader;
-	std::shared_ptr<Rexal::VertexArray> m_VertexArray;
+	Rexal::Ref<Rexal::Shader> m_Shader;
+	Rexal::Ref<Rexal::VertexArray> m_VertexArray;
 
-	std::shared_ptr<Rexal::Shader> m_FlatColorShader;
-	std::shared_ptr<Rexal::VertexArray> m_SquareVA;
+	Rexal::Ref<Rexal::Shader> m_FlatColorShader;
+	Rexal::Ref<Rexal::VertexArray> m_SquareVA;
 
 	Rexal::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
