@@ -19,6 +19,7 @@
 #include "Rexal/Renderer/RenderCommand.h"
 
 #include "Rexal/Renderer/Shader.h"
+#include "Rexal/Renderer/Texture.h"
 #include "Rexal/Renderer/Buffer.h"
 #include "Rexal/Renderer/VertexArray.h"
 

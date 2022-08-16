@@ -17,6 +17,7 @@ IncludeDir["GLFW"] = "Rexal/vendor/GLFW/include"
 IncludeDir["Glad"] = "Rexal/vendor/Glad/include"
 IncludeDir["ImGui"] = "Rexal/vendor/imgui"
 IncludeDir["glm"] = "Rexal/vendor/glm"
+IncludeDir["stb_image"] = "Rexal/vendor/stb_image"
 
 group "Dependencies"
 	include "Rexal/vendor/GLFW"
@@ -41,6 +42,8 @@ project "Rexal"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
@@ -57,7 +60,8 @@ project "Rexal"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 	
 	links
