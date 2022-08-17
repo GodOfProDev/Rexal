@@ -164,7 +164,7 @@ public:
 
 		m_Shader.reset(Rexal::Shader::Create(vertexSrc, fragmentSrc));
 		m_FlatColorShader.reset(Rexal::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
-		m_TextureShader.reset(Rexal::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
+		m_TextureShader.reset(Rexal::Shader::Create("assets/shaders/Texture.glsl"));
 
 		m_Texture = Rexal::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_ChernoLogoTexture = Rexal::Texture2D::Create("assets/textures/ChernoLogo.png");
