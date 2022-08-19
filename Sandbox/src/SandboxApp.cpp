@@ -6,6 +6,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Rexal/Renderer/Shader.h"
+
 class ExampleLayer : public Rexal::Layer
 {
 public:
@@ -162,15 +164,15 @@ public:
 		)";
 		#pragma endregion
 
-		m_Shader.reset(Rexal::Shader::Create(vertexSrc, fragmentSrc));
-		m_FlatColorShader.reset(Rexal::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
-		m_TextureShader.reset(Rexal::Shader::Create("assets/shaders/Texture.glsl"));
+		m_Shader = Rexal::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
+		m_FlatColorShader = Rexal::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 		m_Texture = Rexal::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_ChernoLogoTexture = Rexal::Texture2D::Create("assets/textures/ChernoLogo.png");
 
-		std::dynamic_pointer_cast<Rexal::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Rexal::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<Rexal::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Rexal::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Rexal::Timestep ts) override
@@ -216,10 +218,12 @@ public:
 			}
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
+
 		m_Texture->Bind();
-		Rexal::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Rexal::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		m_ChernoLogoTexture->Bind();
-		Rexal::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Rexal::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		// Triangle
 		//Rexal::Renderer::Submit(m_Shader, m_VertexArray);
 
@@ -238,10 +242,11 @@ public:
 	}
 
 private:
+	Rexal::ShaderLibrary m_ShaderLibrary;
 	Rexal::Ref<Rexal::Shader> m_Shader;
 	Rexal::Ref<Rexal::VertexArray> m_VertexArray;
 
-	Rexal::Ref<Rexal::Shader> m_FlatColorShader, m_TextureShader;
+	Rexal::Ref<Rexal::Shader> m_FlatColorShader;
 	Rexal::Ref<Rexal::VertexArray> m_SquareVA;
 
 	Rexal::Ref<Rexal::Texture2D> m_Texture;
