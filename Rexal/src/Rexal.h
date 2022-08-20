@@ -11,6 +11,7 @@
 #include "Rexal/Input.h"
 #include "Rexal/MouseButtonCodes.h"
 #include "Rexal/KeyCodes.h"
+#include "Rexal/OrthographicCameraController.h"
 
 #include "Rexal/ImGui/ImGuiLayer.h"
 
