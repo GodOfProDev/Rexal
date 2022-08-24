@@ -21,6 +21,8 @@ namespace Rexal {
 		RX_CORE_INFO("	Vendor: {0}", glGetString(GL_VENDOR));
 		RX_CORE_INFO("	Renderer: {0}", glGetString(GL_RENDERER));
 		RX_CORE_INFO("	Version: {0}", glGetString(GL_VERSION));
+
+		RX_CORE_ASSERT(GLVersion.major > 4 || (GLVersion.major == 4 && GLVersion.minor >= 5), "Rexal requires at least OpenGL version 4.5!");
 	}
 	void OpenGLContext::SwapBuffers()
 	{

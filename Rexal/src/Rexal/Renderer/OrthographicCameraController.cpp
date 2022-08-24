@@ -11,24 +11,41 @@ namespace Rexal {
 	{
 	}
 
-	void OrthographicCameraController::OnUpdate(Timestep step)
+	void OrthographicCameraController::OnUpdate(Timestep ts)
 	{
 		if (Rexal::Input::IsKeyPressed(RX_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraTranslateSpeed * step;
+		{
+			m_CameraPosition.x -= cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
+			m_CameraPosition.y -= sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
+		}
 		else if (Rexal::Input::IsKeyPressed(RX_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraTranslateSpeed * step;
+		{
+			m_CameraPosition.x += cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
+			m_CameraPosition.y += sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
+		}
 
 		if (Rexal::Input::IsKeyPressed(RX_KEY_UP))
-			m_CameraPosition.y += m_CameraTranslateSpeed * step;
+		{
+			m_CameraPosition.x += -sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
+			m_CameraPosition.y += cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
+		}
 		else if (Rexal::Input::IsKeyPressed(RX_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraTranslateSpeed * step;
+		{
+			m_CameraPosition.x -= -sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
+			m_CameraPosition.y -= cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
+		};
 
 		if (m_Rotation)
 		{
 			if (Rexal::Input::IsKeyPressed(RX_KEY_A))
-				m_CameraRotation += m_CameraRotationSpeed * step;
+				m_CameraRotation += m_CameraRotationSpeed * ts;
 			if (Rexal::Input::IsKeyPressed(RX_KEY_D))
-				m_CameraRotation -= m_CameraRotationSpeed * step;
+				m_CameraRotation -= m_CameraRotationSpeed * ts;
+
+			if (m_CameraRotation > 180.0f)
+				m_CameraRotation -= 360.0f;
+			else if (m_CameraRotation <= -180.0f)
+				m_CameraRotation += 360.0f;
 
 			m_Camera.SetRotation(m_CameraRotation);
 		}
