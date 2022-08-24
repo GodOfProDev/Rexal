@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Rexal/Input.h"
+#include "Rexal/Core/Input.h"
 
 namespace Rexal {
 	class WindowsInput : public Input

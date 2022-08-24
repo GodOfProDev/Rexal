@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Rexal/Layer.h"
+#include "Rexal/Core/Layer.h"
 
 #include "Rexal/Events/MouseEvent.h"
 #include "Rexal/Events/ApplicationEvent.h"

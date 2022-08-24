@@ -2,7 +2,7 @@
 #include "WindowsInput.h"
 
 #include <GLFW/glfw3.h>
-#include "Rexal/Application.h"
+#include "Rexal/Core/Application.h"
 
 namespace Rexal {
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Rexal/Core.h"
+#include "Rexal/Core/Base.h"
 #include "Layer.h"
 
 #include <vector>

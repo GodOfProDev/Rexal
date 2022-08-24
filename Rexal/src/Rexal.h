@@ -2,16 +2,16 @@
 
 // For use by Rexal Applications
 
-#include "Rexal/Application.h"
-#include "Rexal/Layer.h"
-#include "Rexal/Log.h"
+#include "Rexal/Core/Application.h"
+#include "Rexal/Core/Layer.h"
+#include "Rexal/Core/Log.h"
 
 #include "Rexal/Core/Timestep.h"
 
-#include "Rexal/Input.h"
-#include "Rexal/MouseButtonCodes.h"
-#include "Rexal/KeyCodes.h"
-#include "Rexal/OrthographicCameraController.h"
+#include "Rexal/Core/Input.h"
+#include "Rexal/Core/MouseButtonCodes.h"
+#include "Rexal/Core/KeyCodes.h"
+#include "Rexal/Renderer/OrthographicCameraController.h"
 
 #include "Rexal/ImGui/ImGuiLayer.h"
 
@@ -28,5 +28,5 @@
 // -------------------------
 
 // ------ Entry Point ------
-#include "Rexal/EntryPoint.h"
+#include "Rexal/Core/EntryPoint.h"
 // -------------------------

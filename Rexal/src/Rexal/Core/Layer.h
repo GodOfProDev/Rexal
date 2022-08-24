@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Rexal/Core.h"
+#include "Rexal/Core/Base.h"
 #include "Rexal/Core/Timestep.h"
 #include "Rexal/Events/Event.h"
 

@@ -81,17 +81,38 @@
     <ClInclude Include="src\Rexal.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rexal\Application.h">
-      <Filter>src\Rexal</Filter>
+    <ClInclude Include="src\Rexal\Core\Application.h">
+      <Filter>src\Rexal\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rexal\Core.h">
-      <Filter>src\Rexal</Filter>
+    <ClInclude Include="src\Rexal\Core\Base.h">
+      <Filter>src\Rexal\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Core\EntryPoint.h">
+      <Filter>src\Rexal\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Core\Input.h">
+      <Filter>src\Rexal\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Core\KeyCodes.h">
+      <Filter>src\Rexal\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Core\Layer.h">
+      <Filter>src\Rexal\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Core\LayerStack.h">
+      <Filter>src\Rexal\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Core\Log.h">
+      <Filter>src\Rexal\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Core\MouseButtonCodes.h">
+      <Filter>src\Rexal\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Rexal\Core\Timestep.h">
       <Filter>src\Rexal\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rexal\EntryPoint.h">
-      <Filter>src\Rexal</Filter>
+    <ClInclude Include="src\Rexal\Core\Window.h">
+      <Filter>src\Rexal\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Rexal\Events\ApplicationEvent.h">
       <Filter>src\Rexal\Events</Filter>
@@ -108,24 +129,6 @@
     <ClInclude Include="src\Rexal\ImGui\ImGuiLayer.h">
       <Filter>src\Rexal\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rexal\Input.h">
-      <Filter>src\Rexal</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rexal\KeyCodes.h">
-      <Filter>src\Rexal</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rexal\Layer.h">
-      <Filter>src\Rexal</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rexal\LayerStack.h">
-      <Filter>src\Rexal</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rexal\Log.h">
-      <Filter>src\Rexal</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rexal\MouseButtonCodes.h">
-      <Filter>src\Rexal</Filter>
-    </ClInclude>
     <ClInclude Include="src\Rexal\Renderer\Buffer.h">
       <Filter>src\Rexal\Renderer</Filter>
     </ClInclude>
@@ -133,6 +136,9 @@
       <Filter>src\Rexal\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Rexal\Renderer\OrthographicCamera.h">
+      <Filter>src\Rexal\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Renderer\OrthographicCameraController.h">
       <Filter>src\Rexal\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Rexal\Renderer\RenderCommand.h">
@@ -152,9 +158,6 @@
     </ClInclude>
     <ClInclude Include="src\Rexal\Renderer\VertexArray.h">
       <Filter>src\Rexal\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rexal\Window.h">
-      <Filter>src\Rexal</Filter>
     </ClInclude>
     <ClInclude Include="src\rxpch.h">
       <Filter>src</Filter>
@@ -1407,7 +1410,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rexal\OrthographicCameraController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1434,8 +1436,17 @@
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\Rexal\Application.cpp">
-      <Filter>src\Rexal</Filter>
+    <ClCompile Include="src\Rexal\Core\Application.cpp">
+      <Filter>src\Rexal\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rexal\Core\Layer.cpp">
+      <Filter>src\Rexal\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rexal\Core\LayerStack.cpp">
+      <Filter>src\Rexal\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rexal\Core\Log.cpp">
+      <Filter>src\Rexal\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Rexal\ImGui\ImGuiBuild.cpp">
       <Filter>src\Rexal\ImGui</Filter>
@@ -1443,19 +1454,13 @@
     <ClCompile Include="src\Rexal\ImGui\ImGuiLayer.cpp">
       <Filter>src\Rexal\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Rexal\Layer.cpp">
-      <Filter>src\Rexal</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Rexal\LayerStack.cpp">
-      <Filter>src\Rexal</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Rexal\Log.cpp">
-      <Filter>src\Rexal</Filter>
-    </ClCompile>
     <ClCompile Include="src\Rexal\Renderer\Buffer.cpp">
       <Filter>src\Rexal\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Rexal\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Rexal\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rexal\Renderer\OrthographicCameraController.cpp">
       <Filter>src\Rexal\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Rexal\Renderer\RenderCommand.cpp">
@@ -1482,6 +1487,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Rexal\OrthographicCameraController.cpp" />
   </ItemGroup>
 </Project>

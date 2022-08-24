@@ -1,7 +1,7 @@
 #pragma once
 
 #include "rxpch.h"
-#include "Rexal/Core.h"
+#include "Rexal/Core/Base.h"
 
 namespace Rexal {
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Rexal/Window.h"
+#include "Rexal/Core/Window.h"
 #include "Rexal/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>

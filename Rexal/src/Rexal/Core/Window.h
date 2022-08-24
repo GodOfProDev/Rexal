@@ -2,7 +2,7 @@
 
 #include "rxpch.h"
 
-#include "Rexal/Core.h"
+#include "Rexal/Core/Base.h"
 #include "Rexal/Events/Event.h"
 
 namespace Rexal {

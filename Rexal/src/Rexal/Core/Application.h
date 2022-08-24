@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Core.h"
+#include "Base.h"
 
 #include "Window.h"
-#include "Rexal/LayerStack.h"
+#include "Rexal/Core/LayerStack.h"
 #include "Rexal/Events/Event.h"
 #include "Rexal/Events/ApplicationEvent.h"
 

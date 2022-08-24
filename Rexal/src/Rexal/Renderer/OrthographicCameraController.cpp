@@ -1,8 +1,8 @@
 #include "rxpch.h"
 #include "OrthographicCameraController.h"
 
-#include "Rexal/Input.h"
-#include "Rexal/KeyCodes.h"
+#include "Rexal/Core/Input.h"
+#include "Rexal/Core/KeyCodes.h"
 
 namespace Rexal {
 
