@@ -1,4 +1,5 @@
 #include <Rexal.h>
+#include <Rexal/Core/EntryPoint.h>
 
 #include <imgui/imgui.h>
 #include "Platform/OpenGL/OpenGLShader.h"
@@ -6,7 +7,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "Rexal/Renderer/Shader.h"
+#include "Sandbox2D.h"
 
 class ExampleLayer : public Rexal::Layer
 {
@@ -59,43 +60,6 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 		m_SquareVA->SetIndexBuffer(squareIB);
 
-		#pragma region Shader
-		std::string vertexSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) in vec3 a_Position;
-			layout(location = 1) in vec4 a_Color;
-
-			uniform mat4 u_ViewProjection;
-			uniform mat4 u_Transform;
-
-			out vec3 v_Position;
-			out vec4 v_Color;
-
-			void main()
-			{
-				v_Position = a_Position;
-				v_Color = a_Color;
-				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
-			}
-		)";
-
-		std::string fragmentSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) out vec4 color;
-
-			in vec3 v_Position;
-			in vec4 v_Color;
-
-			void main()
-			{
-				color = v_Color;
-			}
-		)";
-		#pragma endregion
-
-		m_Shader = Rexal::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
 		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 		m_ShaderLibrary.Load("assets/shaders/FlatColor.glsl");
 
@@ -141,8 +105,6 @@ public:
 		Rexal::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		m_ChernoLogoTexture->Bind();
 		Rexal::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
-		// Triangle
-		//Rexal::Renderer::Submit(m_Shader, m_VertexArray);
 
 		Rexal::Renderer::EndScene();
 	}
@@ -161,7 +123,6 @@ public:
 
 private:
 	Rexal::ShaderLibrary m_ShaderLibrary;
-	Rexal::Ref<Rexal::Shader> m_Shader;
 
 	Rexal::Ref<Rexal::VertexArray> m_VertexArray;
 	Rexal::Ref<Rexal::VertexArray> m_SquareVA;
@@ -179,7 +140,8 @@ class Sandbox : public Rexal::Application
 public:
 	Sandbox()
 	{
-		PushLayer(new ExampleLayer());
+		//PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}
 
 	~Sandbox()

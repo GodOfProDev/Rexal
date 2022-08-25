@@ -26,7 +26,3 @@
 
 #include "Rexal/Renderer/OrthographicCamera.h"
 // -------------------------
-
-// ------ Entry Point ------
-#include "Rexal/Core/EntryPoint.h"
-// -------------------------
