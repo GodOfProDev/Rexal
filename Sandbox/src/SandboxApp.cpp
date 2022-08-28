@@ -15,8 +15,8 @@ public:
 	ExampleLayer()
 		: Layer("Example"), m_CameraController(1280 / 620)
 	{
-		m_VertexArray.reset(Rexal::VertexArray::Create());
-		m_SquareVA.reset(Rexal::VertexArray::Create());
+		m_VertexArray = Rexal::VertexArray::Create();
+		m_SquareVA = Rexal::VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 1.0f, 1.0f,

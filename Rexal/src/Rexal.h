@@ -17,6 +17,7 @@
 
 // ------ Renderer ------
 #include "Rexal/Renderer/Renderer.h"
+#include "Rexal/Renderer/Renderer2D.h"
 #include "Rexal/Renderer/RenderCommand.h"
 
 #include "Rexal/Renderer/Shader.h"
