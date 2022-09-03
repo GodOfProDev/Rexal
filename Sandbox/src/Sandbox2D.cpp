@@ -38,13 +38,10 @@ void Sandbox2D::OnUpdate(Rexal::Timestep ts)
 
 	Rexal::Renderer2D::BeginScene(m_CameraController.GetCamera());
 
-	Rexal::Renderer2D::DrawQuad({ 0.0f, 0.0f }, { 1.0f, 1.0f }, { 0.2f, 0.3f, 0.8f , 1.0f });
+	Rexal::Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.75f }, { 0.2f, 0.3f, 0.8f , 1.0f });
+	Rexal::Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, { 1.0f, 0.0f, 0.0f , 1.0f });
 
 	Rexal::Renderer2D::EndScene();
-
-	//auto flatColorShader = m_ShaderLibrary.Get("FlatColor");
-	//std::dynamic_pointer_cast<Rexal::OpenGLShader>(flatColorShader)->Bind();
-	//std::dynamic_pointer_cast<Rexal::OpenGLShader>(flatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
 }
 
 void Sandbox2D::OnEvent(Rexal::Event& e)
