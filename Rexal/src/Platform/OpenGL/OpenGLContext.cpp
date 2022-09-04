@@ -12,6 +12,8 @@ namespace Rexal {
 	}
 	void OpenGLContext::Init()
 	{
+		RX_PROFILE_FUNCTION();
+
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		RX_CORE_ASSERT(status, "Failed to initialize Glad");
@@ -26,6 +28,8 @@ namespace Rexal {
 	}
 	void OpenGLContext::SwapBuffers()
 	{
+		RX_PROFILE_FUNCTION();
+
 		glfwSwapBuffers(m_WindowHandle);
 	}
 }

@@ -13,6 +13,8 @@ namespace Rexal {
 
 	void OrthographicCameraController::OnUpdate(Timestep ts)
 	{
+		RX_PROFILE_FUNCTION();
+
 		if (Rexal::Input::IsKeyPressed(RX_KEY_LEFT))
 		{
 			m_CameraPosition.x -= cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
@@ -55,6 +57,8 @@ namespace Rexal {
 
 	void OrthographicCameraController::OnEvent(Event& e)
 	{
+		RX_PROFILE_FUNCTION();
+
 		EventDispatcher dispathcer(e);
 		dispathcer.Dispatch<MouseScrolledEvent>(RX_BIND_EVENT_FN(OrthographicCameraController::OnMouseScrolled));
 		dispathcer.Dispatch<WindowResizeEvent>(RX_BIND_EVENT_FN(OrthographicCameraController::OnWindowResized));
@@ -62,6 +66,8 @@ namespace Rexal {
 
 	bool OrthographicCameraController::OnMouseScrolled(MouseScrolledEvent& e)
 	{
+		RX_PROFILE_FUNCTION();
+
 		m_ZoomLevel -= e.GetYOffset() * 0.25f;
 		m_ZoomLevel = std::max(m_ZoomLevel, 0.25f);
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
@@ -70,6 +76,8 @@ namespace Rexal {
 
 	bool OrthographicCameraController::OnWindowResized(WindowResizeEvent& e)
 	{
+		RX_PROFILE_FUNCTION();
+
 		m_AspectRatio = (float) e.GetWidth() / (float) e.GetHeight();
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
 		return false;
