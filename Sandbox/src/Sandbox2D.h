@@ -19,6 +19,7 @@ private:
 	Rexal::OrthographicCameraController m_CameraController;
 
 	Rexal::Ref<Rexal::VertexArray> m_SquareVA;
+	Rexal::Ref<Rexal::Texture2D> m_CheckerboardTexture;
 
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f};
 };
