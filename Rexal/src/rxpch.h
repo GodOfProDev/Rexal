@@ -15,6 +15,8 @@
 
 #include "Rexal/Core/Log.h"
 
+#include "Rexal/Debug/Instrumentor.h"
+
 #ifdef RX_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

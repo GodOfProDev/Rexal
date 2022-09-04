@@ -7,12 +7,18 @@ extern Rexal::Application* Rexal::CreateApplication();
 int main(int argc, char** argv)
 {
 	Rexal::Log::Init();
-	RX_CORE_WARN("Initialized Log");
-	int a = 6;
-	RX_INFO("Hello Bro Var={0}", a);
+
+	RX_PROFILE_BEGIN_SESSION("Startup", "RexalProfile-Startup.json");
 	auto app = Rexal::CreateApplication();
+	RX_PROFILE_END_SESSION();
+
+	RX_PROFILE_BEGIN_SESSION("Runtime", "RexalProfile-Runtime.json");
 	app->Run();
+	RX_PROFILE_END_SESSION();
+
+	RX_PROFILE_BEGIN_SESSION("Shutdown", "RexalProfile-Shutdown.json");
 	delete app;
+	RX_PROFILE_END_SESSION();
 }
 
 #endif
