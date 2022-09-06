@@ -122,7 +122,7 @@ namespace Rexal {
     };
 }
 
-#define RX_PROFILE 1
+#define RX_PROFILE 0
 #if RX_PROFILE
 #define RX_PROFILE_BEGIN_SESSION(name, filepath) ::Rexal::Instrumentor::Get().BeginSession(name, filepath)
 #define RX_PROFILE_END_SESSION() ::Rexal::Instrumentor::Get().EndSession()

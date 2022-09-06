@@ -47,10 +47,10 @@ public:
 		Rexal::Ref<Rexal::VertexBuffer> squareVB;
 		Rexal::Ref<Rexal::IndexBuffer> squareIB;
 
-		vertexBuffer.reset(Rexal::VertexBuffer::Create(vertices, sizeof(vertices)));
-		indexBuffer.reset(Rexal::IndexBuffer::Create(indices, std::size(indices)));
-		squareVB.reset(Rexal::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
-		squareIB.reset(Rexal::IndexBuffer::Create(squareIndices, std::size(squareIndices)));
+		vertexBuffer = Rexal::VertexBuffer::Create(vertices, sizeof(vertices));
+		indexBuffer = Rexal::IndexBuffer::Create(indices, std::size(indices));
+		squareVB = Rexal::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
+		squareIB = Rexal::IndexBuffer::Create(squareIndices, std::size(squareIndices));
 
 		vertexBuffer->SetLayout(layout);
 		squareVB->SetLayout(squareLayout);
