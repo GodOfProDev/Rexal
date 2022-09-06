@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Rexal/Core/Base.h"
-#include "Layer.h"
+#include "Rexal/Core/Layer.h"
 
 #include <vector>
 
@@ -10,7 +10,7 @@ namespace Rexal {
 	class LayerStack
 	{
 	public:
-		LayerStack();
+		LayerStack() = default;
 		~LayerStack();
 
 		void PushLayer(Layer* layer);

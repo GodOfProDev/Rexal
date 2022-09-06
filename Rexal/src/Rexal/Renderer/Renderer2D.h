@@ -1,8 +1,8 @@
 #pragma once
 
-#include "OrthographicCamera.h"
+#include "Rexal/Renderer/OrthographicCamera.h"
 
-#include "Texture.h"
+#include "Rexal/Renderer/Texture.h"
 
 namespace Rexal {
 

@@ -1,9 +1,9 @@
 #pragma once
 
-#include "RenderCommand.h"
+#include "Rexal/Renderer/RenderCommand.h"
 
-#include "OrthographicCamera.h"
-#include "Shader.h"
+#include "Rexal/Renderer/OrthographicCamera.h"
+#include "Rexal/Renderer/Shader.h"
 
 namespace Rexal {
 	

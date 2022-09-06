@@ -1,7 +1,7 @@
 #include "rxpch.h"
-#include "Buffer.h"
+#include "Rexal/Renderer/Buffer.h"
 
-#include "Renderer.h"
+#include "Rexal/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLBuffer.h"
 
 namespace Rexal {

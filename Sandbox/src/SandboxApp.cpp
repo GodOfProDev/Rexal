@@ -2,7 +2,6 @@
 #include <Rexal/Core/EntryPoint.h>
 
 #include <imgui/imgui.h>
-#include "Platform/OpenGL/OpenGLShader.h"
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -41,16 +40,11 @@ public:
 			{ Rexal::ShaderDataType::Float3, "a_Position" },
 			{ Rexal::ShaderDataType::Float2, "a_TexCoord" }
 		};
-		
-		Rexal::Ref<Rexal::VertexBuffer> vertexBuffer;
-		Rexal::Ref<Rexal::IndexBuffer> indexBuffer;
-		Rexal::Ref<Rexal::VertexBuffer> squareVB;
-		Rexal::Ref<Rexal::IndexBuffer> squareIB;
 
-		vertexBuffer = Rexal::VertexBuffer::Create(vertices, sizeof(vertices));
-		indexBuffer = Rexal::IndexBuffer::Create(indices, std::size(indices));
-		squareVB = Rexal::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
-		squareIB = Rexal::IndexBuffer::Create(squareIndices, std::size(squareIndices));
+		Rexal::Ref<Rexal::VertexBuffer> vertexBuffer = Rexal::VertexBuffer::Create(vertices, sizeof(vertices));
+		Rexal::Ref<Rexal::IndexBuffer>  indexBuffer = Rexal::IndexBuffer::Create(indices, std::size(indices));
+		Rexal::Ref<Rexal::VertexBuffer> squareVB = Rexal::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
+		Rexal::Ref<Rexal::IndexBuffer>  squareIB = Rexal::IndexBuffer::Create(squareIndices, std::size(squareIndices));
 
 		vertexBuffer->SetLayout(layout);
 		squareVB->SetLayout(squareLayout);
@@ -66,8 +60,8 @@ public:
 		m_Texture = Rexal::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_ChernoLogoTexture = Rexal::Texture2D::Create("assets/textures/ChernoLogo.png");
 
-		std::dynamic_pointer_cast<Rexal::OpenGLShader>(textureShader)->Bind();
-		std::dynamic_pointer_cast<Rexal::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
+		textureShader->Bind();
+		textureShader->SetInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Rexal::Timestep ts) override
@@ -85,8 +79,8 @@ public:
 
 		auto flatColorShader = m_ShaderLibrary.Get("FlatColor");
 
-		std::dynamic_pointer_cast<Rexal::OpenGLShader>(flatColorShader)->Bind();
-		std::dynamic_pointer_cast<Rexal::OpenGLShader>(flatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+		flatColorShader->Bind();
+		flatColorShader->SetFloat3("u_Color", m_SquareColor);
 
 
 		for (int y = 0; y < 10; y++)

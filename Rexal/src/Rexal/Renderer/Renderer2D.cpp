@@ -1,9 +1,9 @@
 #include "rxpch.h"
-#include "Renderer2D.h"
+#include "Rexal/Renderer/Renderer2D.h"
 
-#include "VertexArray.h"
-#include "Shader.h"
-#include "RenderCommand.h"
+#include "Rexal/Renderer/VertexArray.h"
+#include "Rexal/Renderer/Shader.h"
+#include "Rexal/Renderer/RenderCommand.h"
 
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -62,10 +62,8 @@ namespace Rexal {
 				{ ShaderDataType::Float2, "a_TexCoord" }
 		};
 
-		Ref<IndexBuffer> quadIB;
-
 		s_Data.QuadVertexBuffer = VertexBuffer::Create(s_Data.MaxVertices * sizeof(QuadVertex));
-		quadIB = IndexBuffer::Create(quadIndices, s_Data.MaxIndices);
+		Ref<IndexBuffer> quadIB = IndexBuffer::Create(quadIndices, s_Data.MaxIndices);
 
 		s_Data.QuadVertexBuffer->SetLayout(squareLayout);
 

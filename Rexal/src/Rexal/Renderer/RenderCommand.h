@@ -1,6 +1,6 @@
 #pragma once
 
-#include "RendererAPI.h"
+#include "Rexal/Renderer/RendererAPI.h"
 
 namespace Rexal {
 

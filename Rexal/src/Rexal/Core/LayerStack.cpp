@@ -1,11 +1,7 @@
 #include "rxpch.h"
-#include "LayerStack.h"
+#include "Rexal/Core/LayerStack.h"
 
 namespace Rexal {
-
-	LayerStack::LayerStack()
-	{
-	}
 
 	LayerStack::~LayerStack()
 	{

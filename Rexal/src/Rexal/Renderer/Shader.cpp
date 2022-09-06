@@ -1,7 +1,7 @@
 #include "rxpch.h"
-#include "Shader.h"
+#include "Rexal/Renderer/Shader.h"
 
-#include "Renderer.h"
+#include "Rexal/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLShader.h"
 
 namespace Rexal {
@@ -11,7 +11,7 @@ namespace Rexal {
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None: RX_CORE_ASSERT(false, "RendererAPI::None is currently not supported"); return nullptr;
-		case RendererAPI::API::OpenGL: return std::make_shared<OpenGLShader>(filepath);
+		case RendererAPI::API::OpenGL: return CreateRef<OpenGLShader>(filepath);
 		}
 
 		RX_CORE_ASSERT(false, "Unkown RendererAPI");
@@ -23,7 +23,7 @@ namespace Rexal {
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None: RX_CORE_ASSERT(false, "RendererAPI::None is currently not supported"); return nullptr;
-		case RendererAPI::API::OpenGL: return std::make_shared<OpenGLShader>(name, vertexSrc, fragmentSrc);
+		case RendererAPI::API::OpenGL: return CreateRef<OpenGLShader>(name, vertexSrc, fragmentSrc);
 		}
 
 		RX_CORE_ASSERT(false, "Unkown RendererAPI");

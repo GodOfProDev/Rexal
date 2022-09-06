@@ -1,10 +1,10 @@
 #include "rxpch.h"
-#include "RenderCommand.h"
+#include "Rexal/Renderer/RenderCommand.h"
 
 #include "Platform/OpenGL/OpenGLRendererAPI.h"
 
 namespace Rexal {
 
-	Scope<RendererAPI> RenderCommand::s_RendererAPI = CreateScope<OpenGLRendererAPI>();
+	Scope<RendererAPI> RenderCommand::s_RendererAPI = RendererAPI::Create();
 
 }

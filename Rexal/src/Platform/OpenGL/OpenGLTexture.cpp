@@ -1,5 +1,5 @@
 #include "rxpch.h"
-#include "OpenGLTexture.h"
+#include "Platform/OpenGL/OpenGLTexture.h"
 
 #include <glad/glad.h>
 

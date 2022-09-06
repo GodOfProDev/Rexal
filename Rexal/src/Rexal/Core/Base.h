@@ -2,20 +2,6 @@
 
 #include <memory>
 
-#ifdef RX_PLATFORM_WINDOWS
-#if RX_DYNAMIC_LINK
-	#ifdef RX_BUILD_DLL
-		#define REXAL_API __declspec(dllexport)
-	#else
-		#define REXAL_API __declspec(dllimport)
-	#endif
-#else
-	#define REXAL_API
-#endif
-#else
-	#error Rexal only supports Windows!
-#endif
-
 #ifdef RX_DEBUG
 	#define RX_ENABLE_ASSERTS
 #endif

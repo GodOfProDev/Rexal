@@ -1,7 +1,7 @@
 #include "rxpch.h"
-#include "Texture.h"
+#include "Rexal/Renderer/Texture.h"
 
-#include "Renderer.h"
+#include "Rexal/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLTexture.h"
 
 namespace Rexal {
