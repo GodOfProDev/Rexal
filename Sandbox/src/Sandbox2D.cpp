@@ -31,7 +31,7 @@ void Sandbox2D::OnImGuiRender()
 
 	auto stats = Rexal::Renderer2D::GetStats();
 	ImGui::Text("Renderer2D Stats:");
-	ImGui::Text("Draw Calls: %d", stats.QuadCount);
+	ImGui::Text("Draw Calls: %d", stats.DrawCalls);
 	ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
 	ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
 
