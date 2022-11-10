@@ -21,6 +21,10 @@ private:
 	Rexal::Ref<Rexal::VertexArray> m_SquareVA;
 	Rexal::Ref<Rexal::Texture2D> m_CheckerboardTexture;
 
+	Rexal::Ref<Rexal::Texture2D> m_SpriteSheet;
+	Rexal::Ref<Rexal::SubTexture2D> m_TextureStair;
+	Rexal::Ref<Rexal::SubTexture2D> m_TextureTree;
+
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f};
 };
 

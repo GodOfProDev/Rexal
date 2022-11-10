@@ -15,6 +15,10 @@ void Sandbox2D::OnAttach()
 	RX_PROFILE_FUNCTION();
 
 	m_CheckerboardTexture = Rexal::Texture2D::Create("assets/textures/Checkerboard.png");
+	m_SpriteSheet = Rexal::Texture2D::Create("assets/game/textures/RPGpack_sheet_2X.png");
+
+	m_TextureStair = Rexal::SubTexture2D::CreateFromCoords(m_SpriteSheet, {7, 6}, {128, 128});
+	m_TextureTree = Rexal::SubTexture2D::CreateFromCoords(m_SpriteSheet, {2, 1}, {128, 128}, {1, 2});
 }
 
 void Sandbox2D::OnDetach()
@@ -47,14 +51,14 @@ void Sandbox2D::OnUpdate(Rexal::Timestep ts)
 	Rexal::Renderer2D::ResetStats();
 	{
 		RX_PROFILE_SCOPE("Renderer Prep");
-		Rexal::RenderCommand::SetClearColor({ 0.5, 0.2, 1, 1 });
+		Rexal::RenderCommand::SetClearColor({ 0.25, 0.25, 0.25, 1 });
 		Rexal::RenderCommand::Clear();
 	}
 
 	{
 		RX_PROFILE_SCOPE("Renderer Draw");
 
-		static float rotation = 0.0f;
+		/*static float rotation = 0.0f;
 		rotation += ts * 20.0f;
 
 		Rexal::Renderer2D::BeginScene(m_CameraController.GetCamera());
@@ -65,18 +69,21 @@ void Sandbox2D::OnUpdate(Rexal::Timestep ts)
 		Rexal::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 20.0f, 20.0f }, m_CheckerboardTexture, 10.0f);
 		Rexal::Renderer2D::DrawRotatedQuad({ -2.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, rotation, m_CheckerboardTexture, 20.0f);
 
-		Rexal::Renderer2D::EndScene();
+		Rexal::Renderer2D::EndScene();*/
 
 		Rexal::Renderer2D::BeginScene(m_CameraController.GetCamera());
 
-		for (float y = -5.0f; y < 5.0f; y += 0.5f)
+		/*for (float y = -5.0f; y < 5.0f; y += 0.5f)
 		{
 			for (float x = -5.0f; x < 5.0f; x += 0.5f)
 			{
 				glm::vec4 color = { (x + 5.0f) / 10.0f, 0.4f, (y + 5.0f) / 10.0f, 0.5f };
 				Rexal::Renderer2D::DrawQuad({ x, y }, { 0.45f, 0.45f }, color);
 			}
-		}
+		}*/
+
+		Rexal::Renderer2D::DrawQuad({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, m_TextureStair);
+		Rexal::Renderer2D::DrawQuad({ -1.0f, 0.0f, 0.0f }, { 1.0f, 2.0f }, m_TextureTree);
 
 		Rexal::Renderer2D::EndScene();
 	}

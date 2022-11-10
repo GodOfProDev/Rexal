@@ -175,6 +175,7 @@
     <ClInclude Include="src\Rexal\Renderer\Renderer.h" />
     <ClInclude Include="src\Rexal\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Rexal\Renderer\Shader.h" />
+    <ClInclude Include="src\Rexal\Renderer\SubTexture.h" />
     <ClInclude Include="src\Rexal\Renderer\Texture.h" />
     <ClInclude Include="src\Rexal\Renderer\VertexArray.h" />
     <ClInclude Include="src\rxpch.h" />
@@ -619,6 +620,7 @@
     <ClCompile Include="src\Rexal\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Rexal\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Rexal\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Rexal\Renderer\SubTexture.cpp" />
     <ClCompile Include="src\Rexal\Renderer\Texture.cpp" />
     <ClCompile Include="src\Rexal\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\rxpch.cpp">

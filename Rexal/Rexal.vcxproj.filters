@@ -1412,6 +1412,7 @@
     </ClInclude>
     <ClInclude Include="src\Rexal\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Rexal\Debug\Instrumentor.h" />
+    <ClInclude Include="src\Rexal\Renderer\SubTexture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1491,5 +1492,6 @@
     </ClCompile>
     <ClCompile Include="src\Rexal\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Rexal\Renderer\GraphicsContext.cpp" />
+    <ClCompile Include="src\Rexal\Renderer\SubTexture.cpp" />
   </ItemGroup>
 </Project>
