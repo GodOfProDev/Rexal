@@ -14,6 +14,11 @@ void Sandbox2D::OnAttach()
 {
 	RX_PROFILE_FUNCTION();
 
+	Rexal::FramebufferSpecification fbSpec;
+	fbSpec.Width = 1280;
+	fbSpec.Height = 620;
+	m_Framebuffer = Rexal::Framebuffer::Create(fbSpec);
+
 	m_CheckerboardTexture = Rexal::Texture2D::Create("assets/textures/Checkerboard.png");
 	m_SpriteSheet = Rexal::Texture2D::Create("assets/game/textures/RPGpack_sheet_2X.png");
 
@@ -32,7 +37,7 @@ void Sandbox2D::OnImGuiRender()
 	RX_PROFILE_FUNCTION();
 
 	// Note: Switch this to true to enable dockspace
-	static bool dockingEnabled = false;
+	static bool dockingEnabled = true;
 	if (dockingEnabled)
 	{
 		static bool dockspaceOpen = true;
@@ -103,6 +108,9 @@ void Sandbox2D::OnImGuiRender()
 		ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
 		ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
 
+		uint32_t textureId = m_Framebuffer->GetColorAttachmentRendererID();
+		ImGui::Image((void*)textureId, ImVec2{ 1280.0f, 620.0f }, ImVec2{ 0, 1}, ImVec2{ 1, 0});
+
 		ImGui::End();
 
 		ImGui::End();
@@ -131,6 +139,7 @@ void Sandbox2D::OnUpdate(Rexal::Timestep ts)
 	Rexal::Renderer2D::ResetStats();
 	{
 		RX_PROFILE_SCOPE("Renderer Prep");
+		m_Framebuffer->Bind();
 		Rexal::RenderCommand::SetClearColor({ 0.25, 0.25, 0.25, 1 });
 		Rexal::RenderCommand::Clear();
 	}
@@ -166,6 +175,7 @@ void Sandbox2D::OnUpdate(Rexal::Timestep ts)
 		Rexal::Renderer2D::DrawQuad({ -1.0f, 0.0f, 0.0f }, { 1.0f, 2.0f }, m_TextureTree);
 
 		Rexal::Renderer2D::EndScene();
+		m_Framebuffer->Unbind();
 	}
 
 }
