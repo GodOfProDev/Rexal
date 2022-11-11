@@ -19,7 +19,6 @@ private:
 	Rexal::OrthographicCameraController m_CameraController;
 
 	Rexal::Ref<Rexal::VertexArray> m_SquareVA;
-	Rexal::Ref<Rexal::Framebuffer> m_Framebuffer;
 
 	Rexal::Ref<Rexal::Texture2D> m_CheckerboardTexture;
 

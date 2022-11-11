@@ -15,7 +15,7 @@ namespace Rexal {
 	class Application
 	{
 	public:
-		Application();
+		Application(const std::string& name = "Rexal Engine");
 		virtual ~Application();
 
 		void Run();

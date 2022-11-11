@@ -19,6 +19,9 @@
     <Filter Include="src\Rexal\Core">
       <UniqueIdentifier>{D0A44296-BC72-369C-A506-A7C291731201}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Rexal\Debug">
+      <UniqueIdentifier>{EE99A35E-5A25-1123-6336-9417CF406D23}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Rexal\Events">
       <UniqueIdentifier>{5C2AA136-4823-C088-7155-A50D5DAD9F94}</UniqueIdentifier>
     </Filter>
@@ -58,6 +61,9 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
@@ -114,6 +120,9 @@
     <ClInclude Include="src\Rexal\Core\Window.h">
       <Filter>src\Rexal\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Rexal\Debug\Instrumentor.h">
+      <Filter>src\Rexal\Debug</Filter>
+    </ClInclude>
     <ClInclude Include="src\Rexal\Events\ApplicationEvent.h">
       <Filter>src\Rexal\Events</Filter>
     </ClInclude>
@@ -132,6 +141,9 @@
     <ClInclude Include="src\Rexal\Renderer\Buffer.h">
       <Filter>src\Rexal\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Rexal\Renderer\Framebuffer.h">
+      <Filter>src\Rexal\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Rexal\Renderer\GraphicsContext.h">
       <Filter>src\Rexal\Renderer</Filter>
     </ClInclude>
@@ -147,10 +159,16 @@
     <ClInclude Include="src\Rexal\Renderer\Renderer.h">
       <Filter>src\Rexal\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Rexal\Renderer\Renderer2D.h">
+      <Filter>src\Rexal\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Rexal\Renderer\RendererAPI.h">
       <Filter>src\Rexal\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Rexal\Renderer\Shader.h">
+      <Filter>src\Rexal\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Renderer\SubTexture.h">
       <Filter>src\Rexal\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Rexal\Renderer\Texture.h">
@@ -1410,17 +1428,15 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rexal\Renderer\Renderer2D.h" />
-    <ClInclude Include="src\Rexal\Debug\Instrumentor.h" />
-    <ClInclude Include="src\Rexal\Renderer\SubTexture.h" />
-    <ClInclude Include="src\Rexal\Renderer\Framebuffer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
@@ -1462,6 +1478,12 @@
     <ClCompile Include="src\Rexal\Renderer\Buffer.cpp">
       <Filter>src\Rexal\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Rexal\Renderer\Framebuffer.cpp">
+      <Filter>src\Rexal\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rexal\Renderer\GraphicsContext.cpp">
+      <Filter>src\Rexal\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Rexal\Renderer\OrthographicCamera.cpp">
       <Filter>src\Rexal\Renderer</Filter>
     </ClCompile>
@@ -1474,10 +1496,16 @@
     <ClCompile Include="src\Rexal\Renderer\Renderer.cpp">
       <Filter>src\Rexal\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Rexal\Renderer\Renderer2D.cpp">
+      <Filter>src\Rexal\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Rexal\Renderer\RendererAPI.cpp">
       <Filter>src\Rexal\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Rexal\Renderer\Shader.cpp">
+      <Filter>src\Rexal\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rexal\Renderer\SubTexture.cpp">
       <Filter>src\Rexal\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Rexal\Renderer\Texture.cpp">
@@ -1492,10 +1520,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Rexal\Renderer\Renderer2D.cpp" />
-    <ClCompile Include="src\Rexal\Renderer\GraphicsContext.cpp" />
-    <ClCompile Include="src\Rexal\Renderer\SubTexture.cpp" />
-    <ClCompile Include="src\Rexal\Renderer\Framebuffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
   </ItemGroup>
 </Project>

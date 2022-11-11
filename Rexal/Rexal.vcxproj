@@ -140,12 +140,9 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
-    <ClInclude Include="src\Rexal\Debug\Instrumentor.h" />
-    <ClInclude Include="src\Rexal\Renderer\Framebuffer.h" />
-    <ClInclude Include="src\Rexal\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h" />
@@ -164,17 +161,20 @@
     <ClInclude Include="src\Rexal\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Rexal\Core\Timestep.h" />
     <ClInclude Include="src\Rexal\Core\Window.h" />
+    <ClInclude Include="src\Rexal\Debug\Instrumentor.h" />
     <ClInclude Include="src\Rexal\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Rexal\Events\Event.h" />
     <ClInclude Include="src\Rexal\Events\KeyEvent.h" />
     <ClInclude Include="src\Rexal\Events\MouseEvent.h" />
     <ClInclude Include="src\Rexal\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Rexal\Renderer\Buffer.h" />
+    <ClInclude Include="src\Rexal\Renderer\Framebuffer.h" />
     <ClInclude Include="src\Rexal\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Rexal\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Rexal\Renderer\OrthographicCameraController.h" />
     <ClInclude Include="src\Rexal\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Rexal\Renderer\Renderer.h" />
+    <ClInclude Include="src\Rexal\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Rexal\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Rexal\Renderer\Shader.h" />
     <ClInclude Include="src\Rexal\Renderer\SubTexture.h" />
@@ -599,12 +599,9 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
-    <ClCompile Include="src\Rexal\Renderer\Framebuffer.cpp" />
-    <ClCompile Include="src\Rexal\Renderer\GraphicsContext.cpp" />
-    <ClCompile Include="src\Rexal\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp" />
@@ -618,10 +615,13 @@
     <ClCompile Include="src\Rexal\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Rexal\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Rexal\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Rexal\Renderer\Framebuffer.cpp" />
+    <ClCompile Include="src\Rexal\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\Rexal\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Rexal\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Rexal\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Rexal\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Rexal\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Rexal\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Rexal\Renderer\Shader.cpp" />
     <ClCompile Include="src\Rexal\Renderer\SubTexture.cpp" />

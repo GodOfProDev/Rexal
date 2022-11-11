@@ -149,3 +149,55 @@ project "Sandbox"
 		defines "RX_DIST"
 		runtime "Release"
 		optimize "On"
+
+project "Rexal-Editor"
+	location "Rexal-Editor"
+	kind "ConsoleApp"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
+
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp"
+	}
+
+	includedirs
+	{
+		"Rexal/vendor/spdlog/include",
+		"Rexal/src",
+		"Rexal/vendor",
+		"%{IncludeDir.glm}"
+	}
+
+	links
+	{
+		"Rexal"
+	}
+
+	filter "system:windows"
+		systemversion "latest"
+
+		defines
+		{
+			"RX_PLATFORM_WINDOWS"
+		}
+
+	filter "configurations:Debug"
+		defines "RX_DEBUG"
+		runtime "Debug"
+		symbols "On"
+
+	filter "configurations:Release"
+		defines "RX_RELEASE"
+		runtime "Release"
+		optimize "On"
+
+	filter "configurations:Dist"
+		defines "RX_DIST"
+		runtime "Release"
+		optimize "On"
