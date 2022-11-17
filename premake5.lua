@@ -18,6 +18,7 @@ IncludeDir["Glad"] = "Rexal/vendor/Glad/include"
 IncludeDir["ImGui"] = "Rexal/vendor/imgui"
 IncludeDir["glm"] = "Rexal/vendor/glm"
 IncludeDir["stb_image"] = "Rexal/vendor/stb_image"
+IncludeDir["entt"] = "Rexal/vendor/entt/include"
 
 group "Dependencies"
 	include "Rexal/vendor/GLFW"
@@ -61,7 +62,8 @@ project "Rexal"
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb_image}"
+		"%{IncludeDir.stb_image}",
+		"%{IncludeDir.entt}"
 	}
 	
 	links
@@ -171,7 +173,8 @@ project "Rexal-Editor"
 		"Rexal/vendor/spdlog/include",
 		"Rexal/src",
 		"Rexal/vendor",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.entt}"
 	}
 
 	links
