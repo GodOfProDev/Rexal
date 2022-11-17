@@ -179,6 +179,7 @@
     <ClInclude Include="src\Rexal\Renderer\SubTexture.h" />
     <ClInclude Include="src\Rexal\Renderer\Texture.h" />
     <ClInclude Include="src\Rexal\Renderer\VertexArray.h" />
+    <ClInclude Include="src\Rexal\Scene\Components.h" />
     <ClInclude Include="src\Rexal\Scene\Scene.h" />
     <ClInclude Include="src\rxpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />

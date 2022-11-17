@@ -15,6 +15,9 @@
 
 #include "Rexal/ImGui/ImGuiLayer.h"
 
+#include "Rexal/Scene/Scene.h"
+#include "Rexal/Scene/Components.h"
+
 // ------ Renderer ------
 #include "Rexal/Renderer/Renderer.h"
 #include "Rexal/Renderer/Renderer2D.h"

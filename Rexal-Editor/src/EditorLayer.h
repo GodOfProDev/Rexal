@@ -20,6 +20,9 @@ namespace Rexal {
 		ShaderLibrary m_ShaderLibrary;
 		OrthographicCameraController m_CameraController;
 
+		Ref<Scene> m_ActiveScene;
+		entt::entity m_SquareEntity;
+
 		Ref<VertexArray> m_SquareVA;
 		Ref<Framebuffer> m_Framebuffer;
 
