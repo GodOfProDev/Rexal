@@ -7,6 +7,8 @@
 
 #include "Rexal/Renderer/Renderer2D.h"
 
+#include "Entity.h"
+
 namespace Rexal {
 
 	Scene::Scene()
@@ -17,9 +19,14 @@ namespace Rexal {
 	{
 	}
 
-	entt::entity Scene::CreateEntity()
+	Entity Scene::CreateEntity(const std::string& name)
 	{
-		return m_Registry.create();
+		Entity entity = { m_Registry.create(), this };
+		entity.AddComponent<TransformComponent>();
+		auto& tag = entity.AddComponent<TagComponent>();
+		tag.Tag = name.empty() ? "Entity" : name;
+
+		return entity;
 	}
 
 	void Scene::OnUpdate(Timestep ts)

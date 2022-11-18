@@ -1,10 +1,12 @@
 #pragma once
 
-#include "entt.hpp"
+#include <entt.hpp>
 
 #include "Rexal/Core/Timestep.h"
 
 namespace Rexal {
+
+	class Entity;
 
 	class Scene
 	{
@@ -12,13 +14,12 @@ namespace Rexal {
 		Scene();
 		~Scene();
 
-		entt::entity CreateEntity();
-
-		// TEMP
-		entt::registry& GetRegistry() { return m_Registry; }
+		Entity CreateEntity(const std::string& name = std::string());
 
 		void OnUpdate(Timestep ts);
 	private:
 		entt::registry m_Registry;
+
+		friend class Entity;
 	};
 }

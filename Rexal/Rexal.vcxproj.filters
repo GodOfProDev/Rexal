@@ -1427,6 +1427,7 @@
     </ClInclude>
     <ClInclude Include="src\Rexal\Scene\Scene.h" />
     <ClInclude Include="src\Rexal\Scene\Components.h" />
+    <ClInclude Include="src\Rexal\Scene\Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1520,5 +1521,6 @@
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
     <ClCompile Include="src\Rexal\Scene\Scene.cpp" />
+    <ClCompile Include="src\Rexal\Scene\Entity.cpp" />
   </ItemGroup>
 </Project>
