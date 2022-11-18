@@ -2,6 +2,7 @@
 
 #include <entt.hpp>
 #include "Scene.h"
+#include "Components.h"
 
 namespace Rexal {
 
