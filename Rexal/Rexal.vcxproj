@@ -167,6 +167,7 @@
     <ClInclude Include="src\Rexal\Events\MouseEvent.h" />
     <ClInclude Include="src\Rexal\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Rexal\Renderer\Buffer.h" />
+    <ClInclude Include="src\Rexal\Renderer\Camera.h" />
     <ClInclude Include="src\Rexal\Renderer\Framebuffer.h" />
     <ClInclude Include="src\Rexal\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Rexal\Renderer\OrthographicCamera.h" />

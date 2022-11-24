@@ -1428,6 +1428,7 @@
     <ClInclude Include="src\Rexal\Scene\Scene.h" />
     <ClInclude Include="src\Rexal\Scene\Components.h" />
     <ClInclude Include="src\Rexal\Scene\Entity.h" />
+    <ClInclude Include="src\Rexal\Renderer\Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
