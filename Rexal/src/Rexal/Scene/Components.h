@@ -2,7 +2,7 @@
 
 #include <glm/glm.hpp>
 
-#include "Rexal/Renderer/Camera.h"
+#include "SceneCamera.h"
 
 namespace Rexal {
 
@@ -41,12 +41,11 @@ namespace Rexal {
 
 	struct CameraComponent
 	{
-		Camera Camera;
-		bool Primary = true;
+		SceneCamera Camera;
+		bool Primary = true; // TODO: might move it to the scene
+		bool FixedAspectRatio = false;
 
 		CameraComponent() = default;
 		CameraComponent(const CameraComponent&) = default;
-		CameraComponent(const glm::mat4& projection)
-			: Camera(projection) {}
 	};
 }
