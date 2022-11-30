@@ -31,6 +31,9 @@
     <Filter Include="src\Rexal\Renderer">
       <UniqueIdentifier>{1E40905A-0A24-51B0-7384-4B035F873B32}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Rexal\Scene">
+      <UniqueIdentifier>{95FCB15F-0188-1F24-0A99-A21876A37B24}</UniqueIdentifier>
+    </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
     </Filter>
@@ -138,6 +141,9 @@
     <ClInclude Include="src\Rexal\Renderer\Buffer.h">
       <Filter>src\Rexal\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Rexal\Renderer\Camera.h">
+      <Filter>src\Rexal\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Rexal\Renderer\Framebuffer.h">
       <Filter>src\Rexal\Renderer</Filter>
     </ClInclude>
@@ -173,6 +179,18 @@
     </ClInclude>
     <ClInclude Include="src\Rexal\Renderer\VertexArray.h">
       <Filter>src\Rexal\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Scene\Components.h">
+      <Filter>src\Rexal\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Scene\Entity.h">
+      <Filter>src\Rexal\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Scene\Scene.h">
+      <Filter>src\Rexal\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Scene\SceneCamera.h">
+      <Filter>src\Rexal\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\rxpch.h">
       <Filter>src</Filter>
@@ -1425,11 +1443,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rexal\Scene\Scene.h" />
-    <ClInclude Include="src\Rexal\Scene\Components.h" />
-    <ClInclude Include="src\Rexal\Scene\Entity.h" />
-    <ClInclude Include="src\Rexal\Renderer\Camera.h" />
-    <ClInclude Include="src\Rexal\Scene\SceneCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1516,14 +1529,20 @@
     <ClCompile Include="src\Rexal\Renderer\VertexArray.cpp">
       <Filter>src\Rexal\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Rexal\Scene\Entity.cpp">
+      <Filter>src\Rexal\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rexal\Scene\Scene.cpp">
+      <Filter>src\Rexal\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rexal\Scene\SceneCamera.cpp">
+      <Filter>src\Rexal\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="src\rxpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Rexal\Scene\Scene.cpp" />
-    <ClCompile Include="src\Rexal\Scene\Entity.cpp" />
-    <ClCompile Include="src\Rexal\Scene\SceneCamera.cpp" />
   </ItemGroup>
 </Project>
