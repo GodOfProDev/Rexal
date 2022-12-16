@@ -184,6 +184,7 @@
     <ClInclude Include="src\Rexal\Scene\Entity.h" />
     <ClInclude Include="src\Rexal\Scene\Scene.h" />
     <ClInclude Include="src\Rexal\Scene\SceneCamera.h" />
+    <ClInclude Include="src\Rexal\Scene\ScriptableEntity.h" />
     <ClInclude Include="src\rxpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_features.hpp" />
