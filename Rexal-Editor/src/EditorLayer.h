@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Rexal.h"
+#include "Panels/SceneHierarchyPanel.h"
 
 namespace Rexal {
 
@@ -37,6 +38,9 @@ namespace Rexal {
 		bool m_ViewportFocused = false;
 		bool m_ViewportHovered = false;
 		glm::vec2 m_ViewportSize = {0, 0};
+
+		// Panels
+		SceneHierarchyPanel m_SceneHierarchyPanel;
 	};
 
 }
