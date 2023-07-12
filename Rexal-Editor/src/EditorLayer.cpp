@@ -159,6 +159,8 @@ namespace Rexal {
 			ImGui::Separator();
 		}
 
+		
+
 		{
 			auto& camera = m_CameraEntity.GetComponent<CameraComponent>().Camera;
 			float orthoSize = camera.GetOrthographicSize();
