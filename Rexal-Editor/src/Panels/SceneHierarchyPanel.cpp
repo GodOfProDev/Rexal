@@ -90,9 +90,9 @@ namespace Rexal {
 
 			if (ImGui::TreeNodeEx((void*)typeid(TransformComponent).hash_code(), ImGuiTreeNodeFlags_DefaultOpen, "Transform"))
 			{
-				auto& transform = entity.GetComponent<TransformComponent>().Transform;
+				auto& tc = entity.GetComponent<TransformComponent>();
 
-				ImGui::DragFloat3("Position", glm::value_ptr(transform[3]), 0.1f);
+				ImGui::DragFloat3("Position", glm::value_ptr(tc.Position), 0.1f);
 
 				ImGui::TreePop();
 			}

@@ -50,17 +50,17 @@ namespace Rexal {
 
 			void OnUpdate(Timestep ts)
 			{
-				auto& transform = GetComponent<TransformComponent>().Transform;
+				auto& position = GetComponent<TransformComponent>().Position;
 				float speed = 5.0f;
 
 				if (Input::IsKeyPressed(RX_KEY_A))
-					transform[3][0] -= speed * ts;
+					position.x -= speed * ts;
 				if (Input::IsKeyPressed(RX_KEY_D))
-					transform[3][0] += speed * ts;
+					position.x += speed * ts;
 				if (Input::IsKeyPressed(RX_KEY_W))
-					transform[3][1] += speed * ts;
+					position.y += speed * ts;
 				if (Input::IsKeyPressed(RX_KEY_S))
-					transform[3][1] -= speed * ts;
+					position.y -= speed * ts;
 			}
 		};
 
