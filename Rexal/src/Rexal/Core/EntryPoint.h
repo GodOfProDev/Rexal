@@ -1,4 +1,5 @@
 #pragma once
+#include "Rexal/Core/Base.h"
 
 #ifdef RX_PLATFORM_WINDOWS
 
