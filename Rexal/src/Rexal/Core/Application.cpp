@@ -86,16 +86,16 @@ namespace Rexal {
 					for (Layer* layer : m_LayerStack)
 						layer->OnUpdate(timestep);
 				}
-			}
 
-			m_ImGuiLayer->Begin();
-			{
-				RX_PROFILE_SCOPE("LayerStack OnImGuiRender");
+				m_ImGuiLayer->Begin();
+				{
+					RX_PROFILE_SCOPE("LayerStack OnImGuiRender");
 
-				for (Layer* layer : m_LayerStack)
-					layer->OnImGuiRender();
+					for (Layer* layer : m_LayerStack)
+						layer->OnImGuiRender();
+				}
+				m_ImGuiLayer->End();
 			}
-			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}
