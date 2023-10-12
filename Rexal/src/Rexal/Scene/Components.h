@@ -42,7 +42,7 @@ namespace Rexal {
 
 	struct SpriteRendererComponent
 	{
-		glm::vec4 Color{ 1.0f };
+		glm::vec4 Color{ 1.0f, 1.0f, 1.0f, 1.0f };
 
 		SpriteRendererComponent() = default;
 		SpriteRendererComponent(const SpriteRendererComponent&) = default;

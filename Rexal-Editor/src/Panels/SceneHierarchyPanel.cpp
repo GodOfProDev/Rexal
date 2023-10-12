@@ -28,8 +28,6 @@ namespace Rexal {
 			Entity entity{ entityID, m_Context.get() };
 
 			DrawEntityNode(entity);
-
-	
 		});
 
 		if (ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
@@ -62,14 +60,14 @@ namespace Rexal {
 			ImGuiTreeNodeFlags flags = ((m_SelectionContext == entity) ? ImGuiTreeNodeFlags_Selected : 0) | ImGuiTreeNodeFlags_OpenOnArrow;
 			bool opened = ImGui::TreeNodeEx((void*)(uint64_t)(uint32_t)entity, flags, tag.c_str());
 			
-			if (opened) {
+			if (opened) 
 				ImGui::TreePop();
-			}
+			
 			ImGui::TreePop();
 		}
 	}
 
-	static void DrawVec3Control(const std::string& label, glm::vec3 values, float resetValue = 0.0f, float columnWidth = 100.0f) 
+	static void DrawVec3Control(const std::string& label, glm::vec3& values, float resetValue = 0.0f, float columnWidth = 100.0f) 
 	{
 		ImGui::PushID(label.c_str());
 		
