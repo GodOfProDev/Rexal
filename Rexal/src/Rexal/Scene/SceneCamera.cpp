@@ -14,7 +14,7 @@ namespace Rexal {
 	{
 		m_ProjectionType = ProjectionType::Perspective;
 		m_PerspectiveFOV = verticalFOV;
-		m_PerspectiveNear = nearClip;
+		m_PerspectiveNear = nearClip;	
 		m_PerspectiveFar = farClip;
 		RecalculateProjection();
 	}
