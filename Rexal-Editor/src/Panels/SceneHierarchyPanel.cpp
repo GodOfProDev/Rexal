@@ -60,6 +60,11 @@ namespace Rexal {
 					m_SelectionContext.AddComponent<CameraComponent>();
 					ImGui::CloseCurrentPopup();
 				}
+				if (ImGui::MenuItem("SpriteRenderer"))
+				{
+					m_SelectionContext.AddComponent<SpriteRendererComponent>();
+					ImGui::CloseCurrentPopup();
+				}
 
 				ImGui::EndPopup();
 			}
@@ -316,9 +321,8 @@ namespace Rexal {
 			bool open = ImGui::TreeNodeEx((void*)typeid(SpriteRendererComponent).hash_code(), treeNodeFlags, "Sprite Renderer");
 			ImGui::SameLine();
 			if (ImGui::Button("+"))
-			{
 				ImGui::OpenPopup("ComponentSettings");
-			}
+			
 
 			bool removeComponent = false;
 			if (ImGui::BeginPopup("ComponentSettings"))
