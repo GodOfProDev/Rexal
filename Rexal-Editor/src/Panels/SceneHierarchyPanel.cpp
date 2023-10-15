@@ -60,7 +60,7 @@ namespace Rexal {
 					m_SelectionContext.AddComponent<CameraComponent>();
 					ImGui::CloseCurrentPopup();
 				}
-				if (ImGui::MenuItem("SpriteRenderer"))
+				if (ImGui::MenuItem("Sprite Renderer"))
 				{
 					m_SelectionContext.AddComponent<SpriteRendererComponent>();
 					ImGui::CloseCurrentPopup();
@@ -86,7 +86,7 @@ namespace Rexal {
 		}
 
 		bool entityDeleted = false;
-		if (ImGui::BeginPopupContextWindow())
+		if (ImGui::BeginPopupContextItem())
 		{
 			if (ImGui::MenuItem("Delete Entity"))
 				entityDeleted = true;
@@ -195,21 +195,6 @@ namespace Rexal {
 		if (entity.HasComponent<TransformComponent>())
 		{
 			bool open = ImGui::TreeNodeEx((void*)typeid(TransformComponent).hash_code(), treeNodeFlags, "Transform");
-			ImGui::SameLine();
-			if (ImGui::Button("+"))
-			{
-				ImGui::OpenPopup("ComponentSettings");
-			}
-
-			bool removeComponent = false;
-			if (ImGui::BeginPopup("ComponentSettings")) 
-			{
-				if (ImGui::MenuItem("Remove component"))
-					removeComponent = true;
-
-				ImGui::EndPopup();
-			}
-
 			if (open)
 			{
 				auto& tc = entity.GetComponent<TransformComponent>();
@@ -224,15 +209,12 @@ namespace Rexal {
 
 				ImGui::TreePop();
 			}
-
-			if (removeComponent)
-				entity.RemoveComponent<TransformComponent>();
 		}
 
 		if (entity.HasComponent<CameraComponent>())
 		{
-
-			if (ImGui::TreeNodeEx((void*)typeid(CameraComponent).hash_code(), treeNodeFlags, "Camera"))
+			bool open = ImGui::TreeNodeEx((void*)typeid(CameraComponent).hash_code(), treeNodeFlags, "Camera");
+			if (open)
 			{
 				auto& cameraComponent = entity.GetComponent<CameraComponent>();
 				auto& camera = cameraComponent.Camera;
@@ -318,11 +300,14 @@ namespace Rexal {
 
 		if (entity.HasComponent<SpriteRendererComponent>())
 		{
+			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4, 4 });
+
 			bool open = ImGui::TreeNodeEx((void*)typeid(SpriteRendererComponent).hash_code(), treeNodeFlags, "Sprite Renderer");
-			ImGui::SameLine();
-			if (ImGui::Button("+"))
+			ImGui::SameLine(ImGui::GetWindowWidth() - 25.0f);
+			if (ImGui::Button("+", ImVec2{ 20, 20 }))
 				ImGui::OpenPopup("ComponentSettings");
 			
+			ImGui::PopStyleVar();
 
 			bool removeComponent = false;
 			if (ImGui::BeginPopup("ComponentSettings"))
