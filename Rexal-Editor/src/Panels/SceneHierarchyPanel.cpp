@@ -185,10 +185,10 @@ namespace Rexal {
 	}
 
 	template<typename T, typename UIFunction>
-	static void DrawComponent(const std::string& name, Entity entity, UIFunction uiFunction)
+	static void DrawComponent(const std::string& name, Entity entity, bool shouldBeRemoved, UIFunction uiFunction)
 	{
 		const ImGuiTreeNodeFlags treeNodeFlags = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_Framed | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_AllowItemOverlap | ImGuiTreeNodeFlags_FramePadding;
-		if (entity.HasComponent<T>())
+		if (shouldBeRemoved && entity.HasComponent<T>())
 		{
 			auto& component = entity.GetComponent<T>();
 			ImVec2 contentRegionAvailable = ImGui::GetContentRegionAvail();
@@ -197,8 +197,7 @@ namespace Rexal {
 			float lineHeight = GImGui->Font->FontSize + GImGui->Style.FramePadding.y * 2.0f;
 			ImGui::Separator();
 			bool open = ImGui::TreeNodeEx((void*)typeid(T).hash_code(), treeNodeFlags, name.c_str());
-			ImGui::PopStyleVar(
-			);
+			ImGui::PopStyleVar();
 			ImGui::SameLine(contentRegionAvailable.x - lineHeight * 0.5f);
 			if (ImGui::Button("+", ImVec2{ lineHeight, lineHeight }))
 			{
@@ -222,12 +221,29 @@ namespace Rexal {
 
 			if (removeComponent)
 				entity.RemoveComponent<T>();
+		} 
+		else if (entity.HasComponent<T>())
+		{
+			auto& component = entity.GetComponent<T>();
+			ImVec2 contentRegionAvailable = ImGui::GetContentRegionAvail();
+
+			ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4, 4 });
+			float lineHeight = GImGui->Font->FontSize + GImGui->Style.FramePadding.y * 2.0f;
+			ImGui::Separator();
+			bool open = ImGui::TreeNodeEx((void*)typeid(T).hash_code(), treeNodeFlags, name.c_str());
+			ImGui::PopStyleVar();
+
+			if (open)
+			{
+				uiFunction(component);
+				ImGui::TreePop();
+			}
 		}
 	}
 
 	void SceneHierarchyPanel::DrawComponents(Entity entity)
 	{
-		DrawComponent<TagComponent>("Tag", entity, [](auto& component)
+		DrawComponent<TagComponent>("Tag", entity, false, [](auto& component)
 		{
 			auto& tag = component.Tag;
 			char buffer[256];
@@ -241,7 +257,7 @@ namespace Rexal {
 			}
 		});
 
-		DrawComponent<TransformComponent>("Transform", entity, [](auto& component)
+		DrawComponent<TransformComponent>("Transform", entity, false, [](auto& component)
 		{
 			DrawVec3Control("Position", component.Position);
 
@@ -252,7 +268,7 @@ namespace Rexal {
 			DrawVec3Control("Scale", component.Scale, 1.0f);
 		});
 
-		DrawComponent<CameraComponent>("Camera", entity, [](auto& component)
+		DrawComponent<CameraComponent>("Camera", entity, true, [](auto& component)
 		{
 			auto& camera = component.Camera;
 
@@ -332,7 +348,7 @@ namespace Rexal {
 			}
 		});
 
-		DrawComponent<SpriteRendererComponent>("Sprite Renderer", entity, [](auto& component)
+		DrawComponent<SpriteRendererComponent>("Sprite Renderer", entity, true, [](auto& component)
 		{
 			ImGui::ColorEdit4("Color", glm::value_ptr(component.Color));
 		});
