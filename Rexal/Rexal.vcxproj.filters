@@ -192,6 +192,12 @@
     <ClInclude Include="src\Rexal\Scene\SceneCamera.h">
       <Filter>src\Rexal\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="src\Rexal\Scene\SceneSerializer.h">
+      <Filter>src\Rexal\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Scene\ScriptableEntity.h">
+      <Filter>src\Rexal\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="src\rxpch.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -1443,7 +1449,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rexal\Scene\ScriptableEntity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1537,6 +1542,9 @@
       <Filter>src\Rexal\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\Rexal\Scene\SceneCamera.cpp">
+      <Filter>src\Rexal\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rexal\Scene\SceneSerializer.cpp">
       <Filter>src\Rexal\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\rxpch.cpp">

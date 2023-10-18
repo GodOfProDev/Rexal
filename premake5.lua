@@ -19,11 +19,13 @@ IncludeDir["ImGui"] = "Rexal/vendor/imgui"
 IncludeDir["glm"] = "Rexal/vendor/glm"
 IncludeDir["stb_image"] = "Rexal/vendor/stb_image"
 IncludeDir["entt"] = "Rexal/vendor/entt/include"
+IncludeDir["yaml_cpp"] = "Rexal/vendor/yaml-cpp/include"
 
 group "Dependencies"
 	include "Rexal/vendor/GLFW"
 	include "Rexal/vendor/Glad"
 	include "Rexal/vendor/imgui"
+	include "Rexal/vendor/yaml-cpp"
 group ""
 
 project "Rexal"
@@ -63,7 +65,8 @@ project "Rexal"
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.stb_image}",
-		"%{IncludeDir.entt}"
+		"%{IncludeDir.entt}",
+		"%{IncludeDir.yaml_cpp}"
 	}
 	
 	links
@@ -71,6 +74,7 @@ project "Rexal"
 		"GLFW",
 		"GLAD",
 		"ImGui",
+		"yaml-cpp",
 		"opengl32.lib"
 	}
 
