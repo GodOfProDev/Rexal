@@ -18,6 +18,12 @@ namespace Rexal {
 		virtual void OnImGuiRender() override;
 		void OnEvent(Event& e) override;
 	private:
+		bool OnKeyPressed(KeyPressedEvent& e);
+
+		void NewScene();
+		void OpenScene();
+		void SaveSceneAs();
+	private:
 		ShaderLibrary m_ShaderLibrary;
 		OrthographicCameraController m_CameraController;
 
