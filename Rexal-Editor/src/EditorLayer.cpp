@@ -314,7 +314,7 @@ namespace Rexal {
 
 	void EditorLayer::SaveSceneAs()
 	{
-		std::string filepath = FileDialogs::SaveFile("Hazel Scene (*.hazel)\0*.hazel\0");
+		std::string filepath = FileDialogs::SaveFile("Rexal Scene (*.rexal)\0*.rexal\0");
 		if (!filepath.empty())
 		{
 			SceneSerializer serializer(m_ActiveScene);
