@@ -28,14 +28,23 @@
     <Filter Include="src\Rexal\ImGui">
       <UniqueIdentifier>{A204025F-0E90-6F23-17A1-F21783ABCB23}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Rexal\Math">
+      <UniqueIdentifier>{51E54796-3DB3-3B9C-2647-ACC212B41701}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Rexal\Renderer">
       <UniqueIdentifier>{1E40905A-0A24-51B0-7384-4B035F873B32}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Rexal\Scene">
       <UniqueIdentifier>{95FCB15F-0188-1F24-0A99-A21876A37B24}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Rexal\Utils">
+      <UniqueIdentifier>{D890DF5F-441C-4D24-4D2D-D018B937A924}</UniqueIdentifier>
+    </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\ImGuizmo">
+      <UniqueIdentifier>{73BF7F4C-DF4A-ED10-E85B-700554664911}</UniqueIdentifier>
     </Filter>
     <Filter Include="vendor\glm">
       <UniqueIdentifier>{829FC5A8-6E57-07F6-D75E-E051C335A2E6}</UniqueIdentifier>
@@ -138,6 +147,9 @@
     <ClInclude Include="src\Rexal\ImGui\ImGuiLayer.h">
       <Filter>src\Rexal\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Rexal\Math\Math.h">
+      <Filter>src\Rexal\Math</Filter>
+    </ClInclude>
     <ClInclude Include="src\Rexal\Renderer\Buffer.h">
       <Filter>src\Rexal\Renderer</Filter>
     </ClInclude>
@@ -198,8 +210,14 @@
     <ClInclude Include="src\Rexal\Scene\ScriptableEntity.h">
       <Filter>src\Rexal\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="src\Rexal\Utils\PlatformUtils.h">
+      <Filter>src\Rexal\Utils</Filter>
+    </ClInclude>
     <ClInclude Include="src\rxpch.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\ImGuizmo\ImGuizmo.h">
+      <Filter>vendor\ImGuizmo</Filter>
     </ClInclude>
     <ClInclude Include="vendor\glm\glm\common.hpp">
       <Filter>vendor\glm\glm</Filter>
@@ -1449,7 +1467,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rexal\Utils\PlatformUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1476,6 +1493,9 @@
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsPlatformUtils.cpp">
+      <Filter>src\Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
@@ -1496,6 +1516,9 @@
     </ClCompile>
     <ClCompile Include="src\Rexal\ImGui\ImGuiLayer.cpp">
       <Filter>src\Rexal\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rexal\Math\Math.cpp">
+      <Filter>src\Rexal\Math</Filter>
     </ClCompile>
     <ClCompile Include="src\Rexal\Renderer\Buffer.cpp">
       <Filter>src\Rexal\Renderer</Filter>
@@ -1551,9 +1574,11 @@
     <ClCompile Include="src\rxpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="vendor\ImGuizmo\ImGuizmo.cpp">
+      <Filter>vendor\ImGuizmo</Filter>
+    </ClCompile>
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\Windows\WindowsPlatformUtils.cpp" />
   </ItemGroup>
 </Project>

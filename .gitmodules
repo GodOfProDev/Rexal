@@ -13,3 +13,6 @@
 [submodule "Rexal/vendor/yaml-cpp"]
 	path = Rexal/vendor/yaml-cpp
 	url = https://github.com/TheCherno/yaml-cpp
+[submodule "Rexal/vendor/ImGuizmo"]
+	path = Rexal/vendor/ImGuizmo
+	url = https://github.com/TheCherno/ImGuizmo

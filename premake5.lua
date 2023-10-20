@@ -20,6 +20,7 @@ IncludeDir["glm"] = "Rexal/vendor/glm"
 IncludeDir["stb_image"] = "Rexal/vendor/stb_image"
 IncludeDir["entt"] = "Rexal/vendor/entt/include"
 IncludeDir["yaml_cpp"] = "Rexal/vendor/yaml-cpp/include"
+IncludeDir["ImGuizmo"] = "Rexal/vendor/ImGuizmo"
 
 group "Dependencies"
 	include "Rexal/vendor/GLFW"
@@ -48,7 +49,9 @@ project "Rexal"
 		"%{prj.name}/vendor/stb_image/**.h",
 		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
-		"%{prj.name}/vendor/glm/glm/**.inl"
+		"%{prj.name}/vendor/glm/glm/**.inl",
+		"%{prj.name}/vendor/ImGuizmo/ImGuizmo.h",
+		"%{prj.name}/vendor/ImGuizmo/ImGuizmo.cpp"
 	}
 
 	defines
@@ -67,7 +70,8 @@ project "Rexal"
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.stb_image}",
 		"%{IncludeDir.entt}",
-		"%{IncludeDir.yaml_cpp}"
+		"%{IncludeDir.yaml_cpp}",
+		"%{IncludeDir.ImGuizmo}"
 	}
 	
 	links
@@ -78,6 +82,9 @@ project "Rexal"
 		"yaml-cpp",
 		"opengl32.lib"
 	}
+
+	filter "files:Rexal/vendor/ImGuizmo/**.cpp"
+	flags { "NoPCH" }
 
 	filter "system:windows"
 		cppdialect "C++17"
@@ -179,7 +186,8 @@ project "Rexal-Editor"
 		"Rexal/src",
 		"Rexal/vendor",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.entt}"
+		"%{IncludeDir.entt}",
+		"%{IncludeDir.ImGuizmo}"
 	}
 
 	links
