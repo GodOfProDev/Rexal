@@ -3,6 +3,8 @@
 #include "Rexal.h"
 #include "Panels/SceneHierarchyPanel.h"
 
+#include "Rexal/Renderer/EditorCamera.h"
+
 namespace Rexal {
 
 	class EditorLayer : public Layer
@@ -26,6 +28,7 @@ namespace Rexal {
 	private:
 		ShaderLibrary m_ShaderLibrary;
 		OrthographicCameraController m_CameraController;
+		EditorCamera m_EditorCamera;
 
 		Ref<Scene> m_ActiveScene;
 		Entity m_SquareEntity;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Rexal/Renderer/Camera.h"
+#include "Rexal/Renderer/EditorCamera.h"
 #include "Rexal/Renderer/OrthographicCamera.h"
 
 #include "Rexal/Renderer/Texture.h"
@@ -15,6 +16,7 @@ namespace Rexal {
 		static void Shutdown();
 
 		static void BeginScene(const Camera& camera, const glm::mat4& transform);
+		static void BeginScene(const EditorCamera& camera);
 		static void BeginScene(const OrthographicCamera& camera);
 		static void EndScene();
 		static void Flush();
