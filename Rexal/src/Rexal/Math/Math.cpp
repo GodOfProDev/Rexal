@@ -6,7 +6,7 @@
 
 namespace Rexal::Math {
 
-	bool DecomposeTransform(const glm::mat4& transform, glm::vec3& translation, glm::vec3& rotation, glm::vec3& scale)
+	bool DecomposeTransform(const glm::mat4& transform, glm::vec3& position, glm::vec3& rotation, glm::vec3& scale)
 	{
 		// From glm::decompose in matrix_decompose.inl
 
@@ -31,7 +31,7 @@ namespace Rexal::Math {
 		}
 
 		// Next take care of translation (easy).
-		translation = vec3(LocalMatrix[3]);
+		position = vec3(LocalMatrix[3]);
 		LocalMatrix[3] = vec4(0, 0, 0, LocalMatrix[3].w);
 
 		vec3 Row[3], Pdum3;

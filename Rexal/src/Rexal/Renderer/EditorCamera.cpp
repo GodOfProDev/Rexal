@@ -3,7 +3,7 @@
 
 #include "Rexal/Core/Input.h"
 #include "Rexal/Core/KeyCodes.h"
-#include "Rexal/Core/MouseButtonCodes.h"
+#include "Rexal/Core/MouseCodes.h"
 
 #include <glfw/glfw3.h>
 
@@ -61,17 +61,17 @@ namespace Rexal {
 
 	void EditorCamera::OnUpdate(Timestep ts)
 	{
-		if (Input::IsKeyPressed(RX_KEY_LEFT_ALT))
+		if (Input::IsKeyPressed(Key::LeftAlt))
 		{
 			const glm::vec2& mouse{ Input::GetMouseX(), Input::GetMouseY() };
 			glm::vec2 delta = (mouse - m_InitialMousePosition) * 0.003f;
 			m_InitialMousePosition = mouse;
 
-			if (Input::IsMouseButtonPressed(RX_MOUSE_BUTTON_MIDDLE))
+			if (Input::IsMouseButtonPressed(Mouse::ButtonMiddle))
 				MousePan(delta);
-			else if (Input::IsMouseButtonPressed(RX_MOUSE_BUTTON_LEFT))
+			else if (Input::IsMouseButtonPressed(Mouse::ButtonLeft))
 				MouseRotate(delta);
-			else if (Input::IsMouseButtonPressed(RX_MOUSE_BUTTON_RIGHT))
+			else if (Input::IsMouseButtonPressed(Mouse::ButtonRight))
 				MouseZoom(delta.y);
 		}
 

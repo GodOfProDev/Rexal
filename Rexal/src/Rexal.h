@@ -9,7 +9,7 @@
 #include "Rexal/Core/Timestep.h"
 
 #include "Rexal/Core/Input.h"
-#include "Rexal/Core/MouseButtonCodes.h"
+#include "Rexal/Core/MouseCodes.h"
 #include "Rexal/Core/KeyCodes.h"
 #include "Rexal/Renderer/OrthographicCameraController.h"
 

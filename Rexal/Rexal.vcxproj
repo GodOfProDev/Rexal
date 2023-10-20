@@ -157,7 +157,7 @@
     <ClInclude Include="src\Rexal\Core\Layer.h" />
     <ClInclude Include="src\Rexal\Core\LayerStack.h" />
     <ClInclude Include="src\Rexal\Core\Log.h" />
-    <ClInclude Include="src\Rexal\Core\MouseButtonCodes.h" />
+    <ClInclude Include="src\Rexal\Core\MouseCodes.h" />
     <ClInclude Include="src\Rexal\Core\Timestep.h" />
     <ClInclude Include="src\Rexal\Core\Window.h" />
     <ClInclude Include="src\Rexal\Debug\Instrumentor.h" />

@@ -120,7 +120,7 @@
     <ClInclude Include="src\Rexal\Core\Log.h">
       <Filter>src\Rexal\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rexal\Core\MouseButtonCodes.h">
+    <ClInclude Include="src\Rexal\Core\MouseCodes.h">
       <Filter>src\Rexal\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Rexal\Core\Timestep.h">

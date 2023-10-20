@@ -15,23 +15,23 @@ namespace Rexal {
 	{
 		RX_PROFILE_FUNCTION();
 
-		if (Rexal::Input::IsKeyPressed(RX_KEY_LEFT))
+		if (Rexal::Input::IsKeyPressed(Key::Left))
 		{
 			m_CameraPosition.x -= cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y -= sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 		}
-		else if (Rexal::Input::IsKeyPressed(RX_KEY_RIGHT))
+		else if (Rexal::Input::IsKeyPressed(Key::Right))
 		{
 			m_CameraPosition.x += cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y += sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 		}
 
-		if (Rexal::Input::IsKeyPressed(RX_KEY_UP))
+		if (Rexal::Input::IsKeyPressed(Key::Up))
 		{
 			m_CameraPosition.x += -sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y += cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 		}
-		else if (Rexal::Input::IsKeyPressed(RX_KEY_DOWN))
+		else if (Rexal::Input::IsKeyPressed(Key::Down))
 		{
 			m_CameraPosition.x -= -sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y -= cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
@@ -39,9 +39,9 @@ namespace Rexal {
 
 		if (m_Rotation)
 		{
-			if (Rexal::Input::IsKeyPressed(RX_KEY_A))
+			if (Rexal::Input::IsKeyPressed(Key::A))
 				m_CameraRotation += m_CameraRotationSpeed * ts;
-			if (Rexal::Input::IsKeyPressed(RX_KEY_D))
+			if (Rexal::Input::IsKeyPressed(Key::D))
 				m_CameraRotation -= m_CameraRotationSpeed * ts;
 
 			if (m_CameraRotation > 180.0f)
