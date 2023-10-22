@@ -27,6 +27,7 @@ namespace Rexal {
 		FramebufferSpecification fbSpec;
 		fbSpec.Width = 1280;
 		fbSpec.Height = 620;
+		fbSpec.Attachments = { FramebufferTextureFormat::RGBA8, FramebufferTextureFormat::Depth };
 		m_Framebuffer = Framebuffer::Create(fbSpec);
 
 		m_CheckerboardTexture = Texture2D::Create("assets/textures/Checkerboard.png");
