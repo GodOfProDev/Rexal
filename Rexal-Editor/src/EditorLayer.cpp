@@ -309,6 +309,9 @@ namespace Rexal {
 			//Renderer2D::DrawQuad({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, m_TextureStair);
 			//Renderer2D::DrawQuad({ -1.0f, 0.0f, 0.0f }, { 1.0f, 2.0f }, m_TextureTree);
 
+			// Clear our entity ID attachment to -1
+			m_Framebuffer->ClearAttachment(1, -1);
+
 			m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera);
 			
 			auto [mx, my] = ImGui::GetMousePos();
