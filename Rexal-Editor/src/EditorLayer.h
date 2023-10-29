@@ -44,6 +44,8 @@ namespace Rexal {
 		Ref<SubTexture2D> m_TextureTree;
 		glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 
+		Entity m_HoveredEntity;
+
 		int m_GizmoType = -1;
 
 		bool m_ViewportFocused = false;
