@@ -1,9 +1,11 @@
 #pragma once
 
 #include "Rexal.h"
-#include "Panels/SceneHierarchyPanel.h"
 
 #include "Rexal/Renderer/EditorCamera.h"
+
+#include "Panels/SceneHierarchyPanel.h"
+#include "Panels/ContentBrowserPanel.h"
 
 namespace Rexal {
 
@@ -56,6 +58,7 @@ namespace Rexal {
 
 		// Panels
 		SceneHierarchyPanel m_SceneHierarchyPanel;
+		ContentBrowserPanel m_ContentBrowserPanel;
 	};
 
 }
