@@ -27,6 +27,7 @@ namespace Rexal {
 
 		void NewScene();
 		void OpenScene();
+		void OpenScene(const std::filesystem::path& path);
 		void SaveSceneAs();
 	private:
 		ShaderLibrary m_ShaderLibrary;

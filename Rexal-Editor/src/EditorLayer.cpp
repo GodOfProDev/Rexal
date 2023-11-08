@@ -15,6 +15,8 @@
 
 namespace Rexal {
 
+	extern const std::filesystem::path g_AssetPath;
+
 	EditorLayer::EditorLayer()
 		: Layer("EditorLayer"), m_CameraController(1280.0f / 620.0f)
 	{
@@ -193,7 +195,17 @@ namespace Rexal {
 		ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
 		m_ViewportSize = { viewportPanelSize.x, viewportPanelSize.y };
 		uint32_t textureId = m_Framebuffer->GetColorAttachmentRendererID();
-		ImGui::Image((void*)textureId, ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+		ImGui::Image(reinterpret_cast<void*>(textureId), ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+
+		if (ImGui::BeginDragDropTarget())
+		{
+			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
+			{
+				const wchar_t* path = (const wchar_t*)payload->Data;
+				OpenScene(std::filesystem::path(g_AssetPath) / path);
+			}
+			ImGui::EndDragDropTarget();
+		}
 
 		auto windowSize = ImGui::GetWindowSize();
 		ImVec2 minBound = ImGui::GetWindowPos();
@@ -424,21 +436,25 @@ namespace Rexal {
 	void EditorLayer::OpenScene()
 	{
 		std::optional<std::string> filepath = FileDialogs::OpenFile("Rexal Scene (*.rexal)\0*.rexal\0");
-		if (filepath)
-		{
-			m_ActiveScene = CreateRef<Scene>();
-			m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
-			m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+		if (filepath.has_value())
+			OpenScene(filepath.value());
 
-			SceneSerializer serializer(m_ActiveScene);
-			serializer.Deserialize(*filepath);
-		}
+	}
+
+	void EditorLayer::OpenScene(const std::filesystem::path& path)
+	{	
+		m_ActiveScene = CreateRef<Scene>();
+		m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+
+		SceneSerializer serializer(m_ActiveScene);
+		serializer.Deserialize(path.string());
 	}
 
 	void EditorLayer::SaveSceneAs()
 	{
 		std::optional<std::string> filepath = FileDialogs::SaveFile("Rexal Scene (*.rexal)\0*.rexal\0");
-		if (filepath)
+		if (filepath.has_value())
 		{
 			SceneSerializer serializer(m_ActiveScene);
 			serializer.Serialize(*filepath);
