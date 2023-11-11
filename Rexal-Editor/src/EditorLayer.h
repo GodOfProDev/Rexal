@@ -29,6 +29,12 @@ namespace Rexal {
 		void OpenScene();
 		void OpenScene(const std::filesystem::path& path);
 		void SaveSceneAs();
+
+		void OnScenePlay();
+		void OnSceneStop();
+
+		// UI Panels
+		void UI_Toolbar();
 	private:
 		ShaderLibrary m_ShaderLibrary;
 		OrthographicCameraController m_CameraController;
@@ -52,6 +58,12 @@ namespace Rexal {
 
 		int m_GizmoType = -1;
 
+		enum class SceneState
+		{
+			Edit = 0, Play = 1
+		};
+		SceneState m_SceneState = SceneState::Edit;
+
 		bool m_ViewportFocused = false;
 		bool m_ViewportHovered = false;
 		glm::vec2 m_ViewportSize = {0, 0};
@@ -60,6 +72,9 @@ namespace Rexal {
 		// Panels
 		SceneHierarchyPanel m_SceneHierarchyPanel;
 		ContentBrowserPanel m_ContentBrowserPanel;
+
+		// Editor resources
+		Ref<Texture2D> m_IconPlay, m_IconStop;
 	};
 
 }

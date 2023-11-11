@@ -34,6 +34,8 @@ namespace Rexal {
 
 		m_CheckerboardTexture = Texture2D::Create("assets/textures/Checkerboard.png");
 		m_SpriteSheet = Texture2D::Create("assets/game/textures/RPGpack_sheet_2X.png");
+		m_IconPlay = Texture2D::Create("Resources/Icons/PlayButton.png");
+		m_IconStop = Texture2D::Create("Resources/Icons/StopButton.png");
 
 		m_TextureStair = SubTexture2D::CreateFromCoords(m_SpriteSheet, { 7, 6 }, { 128, 128 });
 		m_TextureTree = SubTexture2D::CreateFromCoords(m_SpriteSheet, { 2, 1 }, { 128, 128 }, { 1, 2 });
@@ -86,6 +88,103 @@ namespace Rexal {
 	void EditorLayer::OnDetach()
 	{
 		RX_PROFILE_FUNCTION();
+
+	}
+
+	void EditorLayer::OnUpdate(Timestep ts)
+	{
+		RX_PROFILE_FUNCTION();
+
+		// Resize
+		if (FramebufferSpecification spec = m_Framebuffer->GetSpecification();
+			m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && // zero sized framebuffer is invalid
+			(spec.Width != m_ViewportSize.x || spec.Height != m_ViewportSize.y))
+		{
+			m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+			m_CameraController.OnResize(m_ViewportSize.x, m_ViewportSize.y);
+
+			m_EditorCamera.SetViewportSize(m_ViewportSize.x, m_ViewportSize.y);
+			m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+		}
+
+		Renderer2D::ResetStats();
+		{
+			RX_PROFILE_SCOPE("Renderer Prep");
+			m_Framebuffer->Bind();
+			RenderCommand::SetClearColor({ 0.25, 0.25, 0.25, 1 });
+			RenderCommand::Clear();
+		}
+
+		{
+			RX_PROFILE_SCOPE("Renderer Draw");
+
+			/*static float rotation = 0.0f;
+			rotation += ts * 20.0f;
+
+			Renderer2D::BeginScene(m_CameraController.GetCamera());
+
+			Renderer2D::DrawRotatedQuad({ 1.0f, 0.0f }, { 0.8f, 0.8f }, -45.0f, { 0.8f, 0.2f, 0.3f, 1.0f });
+			Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, { 0.8f, 0.2f, 0.3f, 1.0f });
+			Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.75f }, { 0.2f, 0.3f, 0.8f, 1.0f });
+			Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 20.0f, 20.0f }, m_CheckerboardTexture, 10.0f);
+			Renderer2D::DrawRotatedQuad({ -2.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, rotation, m_CheckerboardTexture, 20.0f);
+
+			Renderer2D::EndScene();*/
+
+			//Renderer2D::BeginScene(m_CameraController.GetCamera());
+
+			/*for (float y = -5.0f; y < 5.0f; y += 0.5f)
+			{
+				for (float x = -5.0f; x < 5.0f; x += 0.5f)
+				{
+					glm::vec4 color = { (x + 5.0f) / 10.0f, 0.4f, (y + 5.0f) / 10.0f, 0.5f };
+					Renderer2D::DrawQuad({ x, y }, { 0.45f, 0.45f }, color);
+				}
+			}*/
+
+			//Renderer2D::DrawQuad({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, m_TextureStair);
+			//Renderer2D::DrawQuad({ -1.0f, 0.0f, 0.0f }, { 1.0f, 2.0f }, m_TextureTree);
+
+			// Clear our entity ID attachment to -1
+			m_Framebuffer->ClearAttachment(1, -1);
+
+			switch (m_SceneState)
+			{
+				case SceneState::Edit:
+				{	
+					if (m_ViewportFocused)
+						m_CameraController.OnUpdate(ts);
+
+					m_EditorCamera.OnUpdate(ts);
+
+					m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera);
+					break;
+				}
+				case SceneState::Play:
+				{
+					m_ActiveScene->OnUpdateRuntime(ts);
+					break;
+				}
+			}
+
+			auto [mx, my] = ImGui::GetMousePos();
+			mx -= m_ViewportBounds[0].x;
+			my -= m_ViewportBounds[0].y;
+			glm::vec2 viewportSize = m_ViewportBounds[1] - m_ViewportBounds[0];
+			my = viewportSize.y - my;
+			int mouseX = (int)mx;
+			int mouseY = (int)my;
+
+			if (mouseX >= 0 && mouseY >= 0 && mouseX < (int)viewportSize.x && mouseY < (int)viewportSize.y)
+			{
+				int pixelData = m_Framebuffer->ReadPixel(1, mouseX, mouseY);
+				RX_TRACE(pixelData);
+				m_HoveredEntity = pixelData == -1 ? Entity() : Entity((entt::entity)pixelData, m_ActiveScene.get());
+			}
+
+			//Renderer2D::EndScene();
+			m_Framebuffer->Unbind();
+		}
 
 	}
 
@@ -269,92 +368,37 @@ namespace Rexal {
 		ImGui::End();
 		ImGui::PopStyleVar();
 
+		UI_Toolbar();
+
 		ImGui::End();
 	}
 
-	void EditorLayer::OnUpdate(Timestep ts)
+	void EditorLayer::UI_Toolbar()
 	{
-		RX_PROFILE_FUNCTION();
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 2));
+		ImGui::PushStyleVar(ImGuiStyleVar_ItemInnerSpacing, ImVec2(0, 0));
+		ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0, 0, 0, 0));
+		auto& colors = ImGui::GetStyle().Colors;
+		const auto& buttonHovered = colors[ImGuiCol_ButtonHovered];
+		ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(buttonHovered.x, buttonHovered.y, buttonHovered.z, 0.5f));
+		const auto& buttonActive = colors[ImGuiCol_ButtonActive];
+		ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(buttonActive.x, buttonActive.y, buttonActive.z, 0.5f));
 
-		// Resize
-		if (FramebufferSpecification spec = m_Framebuffer->GetSpecification();
-			m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && // zero sized framebuffer is invalid
-			(spec.Width != m_ViewportSize.x || spec.Height != m_ViewportSize.y))
+		ImGui::Begin("##toolbar", nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
+
+		float size = ImGui::GetWindowHeight() - 4.0f;
+		Ref<Texture2D> icon = m_SceneState == SceneState::Edit ? m_IconPlay : m_IconStop;
+		ImGui::SetCursorPosX((ImGui::GetWindowContentRegionMax().x * 0.5f) - (size * 0.5f));
+		if (ImGui::ImageButton((ImTextureID)icon->GetRendererID(), ImVec2(size, size), ImVec2(0, 0), ImVec2(1, 1), 0))
 		{
-			m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
-			m_CameraController.OnResize(m_ViewportSize.x, m_ViewportSize.y);
-
-			m_EditorCamera.SetViewportSize(m_ViewportSize.x, m_ViewportSize.y);
-			m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+			if (m_SceneState == SceneState::Edit)
+				OnScenePlay();
+			else if (m_SceneState == SceneState::Play)
+				OnSceneStop();
 		}
-
-		if(m_ViewportFocused)
-			m_CameraController.OnUpdate(ts);
-
-		m_EditorCamera.OnUpdate(ts);
-
-		Renderer2D::ResetStats();
-		{
-			RX_PROFILE_SCOPE("Renderer Prep");
-			m_Framebuffer->Bind();
-			RenderCommand::SetClearColor({ 0.25, 0.25, 0.25, 1 });
-			RenderCommand::Clear();
-		}
-
-		{
-			RX_PROFILE_SCOPE("Renderer Draw");
-
-			/*static float rotation = 0.0f;
-			rotation += ts * 20.0f;
-
-			Renderer2D::BeginScene(m_CameraController.GetCamera());
-
-			Renderer2D::DrawRotatedQuad({ 1.0f, 0.0f }, { 0.8f, 0.8f }, -45.0f, { 0.8f, 0.2f, 0.3f, 1.0f });
-			Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, { 0.8f, 0.2f, 0.3f, 1.0f });
-			Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.75f }, { 0.2f, 0.3f, 0.8f, 1.0f });
-			Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 20.0f, 20.0f }, m_CheckerboardTexture, 10.0f);
-			Renderer2D::DrawRotatedQuad({ -2.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, rotation, m_CheckerboardTexture, 20.0f);
-
-			Renderer2D::EndScene();*/
-
-			//Renderer2D::BeginScene(m_CameraController.GetCamera());
-
-			/*for (float y = -5.0f; y < 5.0f; y += 0.5f)
-			{
-				for (float x = -5.0f; x < 5.0f; x += 0.5f)
-				{
-					glm::vec4 color = { (x + 5.0f) / 10.0f, 0.4f, (y + 5.0f) / 10.0f, 0.5f };
-					Renderer2D::DrawQuad({ x, y }, { 0.45f, 0.45f }, color);
-				}
-			}*/
-
-			//Renderer2D::DrawQuad({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, m_TextureStair);
-			//Renderer2D::DrawQuad({ -1.0f, 0.0f, 0.0f }, { 1.0f, 2.0f }, m_TextureTree);
-
-			// Clear our entity ID attachment to -1
-			m_Framebuffer->ClearAttachment(1, -1);
-
-			m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera);
-			
-			auto [mx, my] = ImGui::GetMousePos();
-			mx -= m_ViewportBounds[0].x;
-			my -= m_ViewportBounds[0].y;
-			glm::vec2 viewportSize = m_ViewportBounds[1] - m_ViewportBounds[0];
-			my = viewportSize.y - my;
-			int mouseX = (int)mx;
-			int mouseY = (int)my;
-
-			if (mouseX >= 0 && mouseY >= 0 && mouseX < (int)viewportSize.x && mouseY < (int)viewportSize.y)
-			{
-				int pixelData = m_Framebuffer->ReadPixel(1, mouseX, mouseY);
-				RX_TRACE(pixelData);
-				m_HoveredEntity = pixelData == -1 ? Entity() : Entity((entt::entity)pixelData, m_ActiveScene.get());
-			}
-
-			//Renderer2D::EndScene();
-			m_Framebuffer->Unbind();
-		}
-
+		ImGui::PopStyleVar(2);
+		ImGui::PopStyleColor(3);
+		ImGui::End();
 	}
 
 	void EditorLayer::OnEvent(Event& e)
@@ -459,5 +503,16 @@ namespace Rexal {
 			SceneSerializer serializer(m_ActiveScene);
 			serializer.Serialize(*filepath);
 		}
+	}
+
+	void EditorLayer::OnScenePlay()
+	{
+		m_SceneState = SceneState::Play;
+	}
+
+	void EditorLayer::OnSceneStop()
+	{
+		m_SceneState = SceneState::Edit;
+
 	}
 }
