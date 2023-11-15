@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Rexal/Core/Timestep.h"
+#include "Rexal/Core/UUID.h"
 #include "Rexal/Renderer/EditorCamera.h"
 
 #include "entt.hpp"
@@ -16,6 +17,7 @@ namespace Rexal {
 		~Scene();
 
 		Entity CreateEntity(const std::string& name = std::string());
+		Entity CreateEntityWithUUID(UUID uuid, const std::string& name = std::string());
 		void DestroyEntity(Entity entity);
 
 		void OnUpdateRuntime(Timestep ts);

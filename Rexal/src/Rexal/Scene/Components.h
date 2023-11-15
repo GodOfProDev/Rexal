@@ -7,10 +7,18 @@
 #include <glm/gtx/quaternion.hpp>
 
 #include "SceneCamera.h"
-
+#include "Rexal/Core/UUID.h"
 #include "Rexal/Renderer/Texture.h"
 
 namespace Rexal {
+
+	struct IDComponent
+	{
+		UUID ID;
+
+		IDComponent() = default;
+		IDComponent(const IDComponent&) = default;
+	};
 
 	struct TagComponent
 	{

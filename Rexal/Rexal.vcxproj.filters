@@ -126,6 +126,9 @@
     <ClInclude Include="src\Rexal\Core\Timestep.h">
       <Filter>src\Rexal\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Rexal\Core\UUID.h">
+      <Filter>src\Rexal\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Rexal\Core\Window.h">
       <Filter>src\Rexal\Core</Filter>
     </ClInclude>
@@ -154,6 +157,9 @@
       <Filter>src\Rexal\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Rexal\Renderer\Camera.h">
+      <Filter>src\Rexal\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rexal\Renderer\EditorCamera.h">
       <Filter>src\Rexal\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Rexal\Renderer\Framebuffer.h">
@@ -1467,7 +1473,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rexal\Renderer\EditorCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1512,6 +1517,9 @@
     <ClCompile Include="src\Rexal\Core\Log.cpp">
       <Filter>src\Rexal\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\Rexal\Core\UUID.cpp">
+      <Filter>src\Rexal\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\Rexal\ImGui\ImGuiBuild.cpp">
       <Filter>src\Rexal\ImGui</Filter>
     </ClCompile>
@@ -1522,6 +1530,9 @@
       <Filter>src\Rexal\Math</Filter>
     </ClCompile>
     <ClCompile Include="src\Rexal\Renderer\Buffer.cpp">
+      <Filter>src\Rexal\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rexal\Renderer\EditorCamera.cpp">
       <Filter>src\Rexal\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Rexal\Renderer\Framebuffer.cpp">
@@ -1581,6 +1592,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Rexal\Renderer\EditorCamera.cpp" />
   </ItemGroup>
 </Project>
