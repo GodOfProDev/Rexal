@@ -1,26 +1,27 @@
 #pragma once
 
 #include "Rexal/Events/Event.h"
+#include "Rexal/Core/KeyCodes.h"
 
 namespace Rexal {
 
 	class KeyEvent : public Event
 	{
 	public:
-		inline int GetKeyCode() const { return m_KeyCode; }
+		KeyCode GetKeyCode() const { return m_KeyCode; }
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 	protected:
-		KeyEvent(int keycode)
+		KeyEvent(const KeyCode keycode)
 			: m_KeyCode(keycode) {}
 
-		int m_KeyCode;
+		KeyCode m_KeyCode;
 	};
 
 	class KeyPressedEvent : public KeyEvent
 	{
 	public:
-		KeyPressedEvent(int keycode, bool isRepeat = false)
+		KeyPressedEvent(const KeyCode keycode, bool isRepeat = false)
 			: KeyEvent(keycode), m_IsRepeat(isRepeat) {}
 
 		bool IsRepeat() const { return m_IsRepeat; }
@@ -40,7 +41,7 @@ namespace Rexal {
 	class KeyReleasedEvent : public KeyEvent
 	{
 	public:
-		KeyReleasedEvent(int keycode)
+		KeyReleasedEvent(const KeyCode keycode)
 			: KeyEvent(keycode) {}
 
 		std::string ToString() const override
@@ -56,7 +57,7 @@ namespace Rexal {
 	class KeyTypedEvent : public KeyEvent
 	{
 	public:
-		KeyTypedEvent(int keycode)
+		KeyTypedEvent(const KeyCode keycode)
 			: KeyEvent(keycode) {}
 
 
