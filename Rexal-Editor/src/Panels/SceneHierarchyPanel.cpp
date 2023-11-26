@@ -262,24 +262,8 @@ namespace Rexal {
 
 		if (ImGui::BeginPopup("AddComponent"))
 		{
-			if (ImGui::MenuItem("Camera"))
-			{
-				if (!m_SelectionContext.HasComponent<CameraComponent>())
-					m_SelectionContext.AddComponent<CameraComponent>();
-				else
-					RX_CORE_WARN("This entity already has the Camera Component!");
-
-				ImGui::CloseCurrentPopup();
-			}
-			if (ImGui::MenuItem("Sprite Renderer"))
-			{
-				if (!m_SelectionContext.HasComponent<SpriteRendererComponent>())
-					m_SelectionContext.AddComponent<SpriteRendererComponent>();
-				else
-					RX_CORE_WARN("This entity already has the Sprite Renderer Component!");
-
-				ImGui::CloseCurrentPopup();
-			}
+			DisplayAddComponentEntry<CameraComponent>("Camera");
+			DisplayAddComponentEntry<SpriteRendererComponent>("Sprite Renderer");
 
 			ImGui::EndPopup();
 		}
@@ -400,5 +384,17 @@ namespace Rexal {
 
 			ImGui::DragFloat("Tiling Factor", &component.TilingFactor, 0.1f, 0.0f, 100.0f);
 		});
+	}
+
+	template<typename T>
+	void SceneHierarchyPanel::DisplayAddComponentEntry(const std::string& entryName) {
+		if (!m_SelectionContext.HasComponent<T>())
+		{
+			if (ImGui::MenuItem(entryName.c_str()))
+			{
+				m_SelectionContext.AddComponent<T>();
+				ImGui::CloseCurrentPopup();
+			}
+		}
 	}
 }
