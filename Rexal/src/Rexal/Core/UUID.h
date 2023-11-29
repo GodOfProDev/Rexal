@@ -17,6 +17,7 @@ namespace Rexal {
 }
 
 namespace std {
+	template <typename T> struct hash;
 
 	template<>
 	struct hash<Rexal::UUID>
