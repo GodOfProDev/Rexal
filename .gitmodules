@@ -16,3 +16,6 @@
 [submodule "Rexal/vendor/ImGuizmo"]
 	path = Rexal/vendor/ImGuizmo
 	url = https://github.com/TheCherno/ImGuizmo
+[submodule "Rexal/vendor/Box2D"]
+	path = Rexal/vendor/Box2D
+	url = https://github.com/thecherno/box2d

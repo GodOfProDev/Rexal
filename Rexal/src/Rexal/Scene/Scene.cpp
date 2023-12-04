@@ -3,6 +3,7 @@
 
 #include "Components.h"
 #include "ScriptableEntity.h"
+#include "box2d/b2_body.h"
 
 #include <glm/glm.hpp>
 

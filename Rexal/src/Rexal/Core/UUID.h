@@ -1,5 +1,8 @@
 #pragma once
 
+
+#include <xhash>
+
 namespace Rexal {
 
 	class UUID
@@ -17,14 +20,13 @@ namespace Rexal {
 }
 
 namespace std {
-	template <typename T> struct hash;
 
 	template<>
 	struct hash<Rexal::UUID>
 	{
 		std::size_t operator()(const Rexal::UUID& uuid) const
 		{
-			return (uint64_t)uuid;
+			return hash<uint64_t>()((uint64_t)uuid);
 		}
 	};
 

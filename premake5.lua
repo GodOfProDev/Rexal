@@ -20,6 +20,7 @@ IncludeDir["glm"] = "Rexal/vendor/glm"
 IncludeDir["stb_image"] = "Rexal/vendor/stb_image"
 IncludeDir["entt"] = "Rexal/vendor/entt/include"
 IncludeDir["yaml_cpp"] = "Rexal/vendor/yaml-cpp/include"
+IncludeDir["Box2D"] = "Rexal/vendor/Box2D/include"
 IncludeDir["ImGuizmo"] = "Rexal/vendor/ImGuizmo"
 
 group "Dependencies"
@@ -27,6 +28,7 @@ group "Dependencies"
 	include "Rexal/vendor/Glad"
 	include "Rexal/vendor/imgui"
 	include "Rexal/vendor/yaml-cpp"
+	include "Rexal/vendor/Box2D"
 group ""
 
 project "Rexal"
@@ -71,6 +73,7 @@ project "Rexal"
 		"%{IncludeDir.stb_image}",
 		"%{IncludeDir.entt}",
 		"%{IncludeDir.yaml_cpp}",
+		"%{IncludeDir.Box2D}",
 		"%{IncludeDir.ImGuizmo}"
 	}
 	
@@ -80,6 +83,7 @@ project "Rexal"
 		"GLAD",
 		"ImGui",
 		"yaml-cpp",
+		"Box2D",
 		"opengl32.lib"
 	}
 
