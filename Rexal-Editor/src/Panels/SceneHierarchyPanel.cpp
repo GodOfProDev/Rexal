@@ -269,6 +269,7 @@ namespace Rexal {
 		{
 			DisplayAddComponentEntry<CameraComponent>("Camera");
 			DisplayAddComponentEntry<SpriteRendererComponent>("Sprite Renderer");
+			DisplayAddComponentEntry<CircleRendererComponent>("Circle Renderer");
 			DisplayAddComponentEntry<Rigidbody2DComponent>("Rigidbody 2D");
 			DisplayAddComponentEntry<BoxCollider2DComponent>("Box Collider 2D");
 
@@ -390,6 +391,13 @@ namespace Rexal {
 			}
 
 			ImGui::DragFloat("Tiling Factor", &component.TilingFactor, 0.1f, 0.0f, 100.0f);
+		});
+
+		DrawComponent<CircleRendererComponent>("Circle Renderer", entity, true, [](auto& component)
+		{
+			ImGui::ColorEdit4("Color", glm::value_ptr(component.Color));
+			ImGui::DragFloat("Thickness", &component.Thickness, 0.025f, 0.0f, 1.0f);
+			ImGui::DragFloat("Fade", &component.Fade, 0.00025f, 0.0f, 1.0f);
 		});
 
 		DrawComponent<Rigidbody2DComponent>("Rigidbody 2D", entity, true, [](auto& component)
