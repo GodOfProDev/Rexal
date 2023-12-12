@@ -160,6 +160,9 @@ namespace Rexal {
 		s_Data.QuadShader->Bind();
 		s_Data.QuadShader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
 
+		s_Data.CircleShader->Bind();
+		s_Data.CircleShader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
+
 		StartBatch();
 	}
 
@@ -172,6 +175,9 @@ namespace Rexal {
 		s_Data.QuadShader->Bind();
 		s_Data.QuadShader->SetMat4("u_ViewProjection", viewProj);
 
+		s_Data.CircleShader->Bind();
+		s_Data.CircleShader->SetMat4("u_ViewProjection", viewProj);
+
 		StartBatch();
 	}
 
@@ -183,6 +189,9 @@ namespace Rexal {
 
 		s_Data.QuadShader->Bind();
 		s_Data.QuadShader->SetMat4("u_ViewProjection", viewProj);
+
+		s_Data.CircleShader->Bind();
+		s_Data.CircleShader->SetMat4("u_ViewProjection", viewProj);
 
 		StartBatch();
 	}
@@ -207,18 +216,29 @@ namespace Rexal {
 
 	void Renderer2D::Flush()
 	{
-		if (s_Data.QuadIndexCount == 0)
-			return; // Nothing to draw
+		if (s_Data.QuadIndexCount)
+		{
+			uint32_t dataSize = (uint32_t)((uint8_t*)s_Data.QuadVertexBufferPtr - (uint8_t*)s_Data.QuadVertexBufferBase);
+			s_Data.QuadVertexBuffer->SetData(s_Data.QuadVertexBufferBase, dataSize);
 
-		uint32_t dataSize = (uint32_t)((uint8_t*)s_Data.QuadVertexBufferPtr - (uint8_t*)s_Data.QuadVertexBufferBase);
-		s_Data.QuadVertexBuffer->SetData(s_Data.QuadVertexBufferBase, dataSize);
+			// Bind textures
+			for (uint32_t i = 0; i < s_Data.TextureSlotIndex; i++)
+				s_Data.TextureSlots[i]->Bind(i);
 
-		// Bind textures
-		for (uint32_t i = 0; i < s_Data.TextureSlotIndex; i++)
-			s_Data.TextureSlots[i]->Bind(i);
+			s_Data.QuadShader->Bind();
+			RenderCommand::DrawIndexed(s_Data.QuadVertexArray, s_Data.QuadIndexCount);
+			s_Data.Stats.DrawCalls++;
+		}
 
-		RenderCommand::DrawIndexed(s_Data.QuadVertexArray, s_Data.QuadIndexCount);
-		s_Data.Stats.DrawCalls++;
+		if (s_Data.CircleIndexCount)
+		{
+			uint32_t dataSize = (uint32_t)((uint8_t*)s_Data.CircleVertexBufferPtr - (uint8_t*)s_Data.CircleVertexBufferBase);
+			s_Data.CircleVertexBuffer->SetData(s_Data.CircleVertexBufferBase, dataSize);
+
+			s_Data.CircleShader->Bind();
+			RenderCommand::DrawIndexed(s_Data.CircleVertexArray, s_Data.CircleIndexCount);
+			s_Data.Stats.DrawCalls++;
+		}
 	}
 
 	void Renderer2D::NextBatch()
