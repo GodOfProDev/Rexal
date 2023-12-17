@@ -272,6 +272,7 @@ namespace Rexal {
 			DisplayAddComponentEntry<CircleRendererComponent>("Circle Renderer");
 			DisplayAddComponentEntry<Rigidbody2DComponent>("Rigidbody 2D");
 			DisplayAddComponentEntry<BoxCollider2DComponent>("Box Collider 2D");
+			DisplayAddComponentEntry<CircleCollider2DComponent>("Circle Collider 2D");
 
 			ImGui::EndPopup();
 		}
@@ -429,6 +430,16 @@ namespace Rexal {
 			{
 				ImGui::DragFloat2("Offset", glm::value_ptr(component.Offset));
 				ImGui::DragFloat2("Size", glm::value_ptr(component.Offset));
+				ImGui::DragFloat("Density", &component.Density, 0.01f, 0.0f, 1.0f);
+				ImGui::DragFloat("Friction", &component.Friction, 0.01f, 0.0f, 1.0f);
+				ImGui::DragFloat("Restitution", &component.Restitution, 0.01f, 0.0f, 1.0f);
+				ImGui::DragFloat("Restitution Threshold", &component.RestitutionThreshold, 0.01f, 0.0f);
+			});
+
+		DrawComponent<CircleCollider2DComponent>("Circle Collider 2D", entity, true, [](auto& component)
+			{
+				ImGui::DragFloat2("Offset", glm::value_ptr(component.Offset));
+				ImGui::DragFloat("Radius", &component.Radius);
 				ImGui::DragFloat("Density", &component.Density, 0.01f, 0.0f, 1.0f);
 				ImGui::DragFloat("Friction", &component.Friction, 0.01f, 0.0f, 1.0f);
 				ImGui::DragFloat("Restitution", &component.Restitution, 0.01f, 0.0f, 1.0f);
