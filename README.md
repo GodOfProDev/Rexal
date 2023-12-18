@@ -38,3 +38,7 @@ If changes are made, or if you want to regenerate project files, rerun the [Win-
 We encourage you to join our community and participate in the Rexal development process. Share your feedback, suggest new features, and collaborate with fellow developers to make Rexal the best 2D game engine it can be.
 
 Thank you for choosing Rexal! We hope you enjoy creating amazing 2D games with our engine.
+
+### How to contribute (WIP)
+
+Please follow the instructions in [CONTRIBUTING.md](https://github.com/GodOfProDev/Rexal/blob/main/CONTRIBUTING.md) in order how to contribute.
